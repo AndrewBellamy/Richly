@@ -7,12 +7,15 @@
 //
 
 import UIKit
+//import JBDatePicker
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, JBDatePickerViewDelegate {
 
+    
+    @IBOutlet weak var datePicker: JBDatePickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        datePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +23,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: - JBDatePickerViewDelegate implementation
+    
+    func didSelectDay(_ dayView: JBDatePickerDayView) {
+        print("date selected: \(String(describing: dayView.date))")
+    }
 }
 
