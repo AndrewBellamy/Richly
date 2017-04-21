@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B861EAA26AE008B121F /* AppDelegate.swift */; };
+		49F03B891EAA26AE008B121F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B881EAA26AE008B121F /* ViewController.swift */; };
+		49F03B8C1EAA26AE008B121F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F03B8A1EAA26AE008B121F /* Main.storyboard */; };
+		49F03B8E1EAA26AE008B121F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F03B8D1EAA26AE008B121F /* Assets.xcassets */; };
+		49F03B911EAA26AE008B121F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F03B8F1EAA26AE008B121F /* LaunchScreen.storyboard */; };
+		49F03B9C1EAA26AE008B121F /* RichlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B9B1EAA26AE008B121F /* RichlyTests.swift */; };
+		49F03BA71EAA26AE008B121F /* RichlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BA61EAA26AE008B121F /* RichlyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49F03B981EAA26AE008B121F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F03B7B1EAA26AE008B121F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49F03B821EAA26AE008B121F;
+			remoteInfo = Richly;
+		};
+		49F03BA31EAA26AE008B121F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F03B7B1EAA26AE008B121F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49F03B821EAA26AE008B121F;
+			remoteInfo = Richly;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		49F03B831EAA26AE008B121F /* Richly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Richly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F03B861EAA26AE008B121F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49F03B881EAA26AE008B121F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49F03B8B1EAA26AE008B121F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49F03B8D1EAA26AE008B121F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49F03B901EAA26AE008B121F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		49F03B921EAA26AE008B121F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F03B971EAA26AE008B121F /* RichlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RichlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F03B9B1EAA26AE008B121F /* RichlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichlyTests.swift; sourceTree = "<group>"; };
+		49F03B9D1EAA26AE008B121F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F03BA21EAA26AE008B121F /* RichlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RichlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F03BA61EAA26AE008B121F /* RichlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichlyUITests.swift; sourceTree = "<group>"; };
+		49F03BA81EAA26AE008B121F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49F03B801EAA26AE008B121F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F03B941EAA26AE008B121F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F03B9F1EAA26AE008B121F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49F03B7A1EAA26AE008B121F = {
+			isa = PBXGroup;
+			children = (
+				49F03B851EAA26AE008B121F /* Richly */,
+				49F03B9A1EAA26AE008B121F /* RichlyTests */,
+				49F03BA51EAA26AE008B121F /* RichlyUITests */,
+				49F03B841EAA26AE008B121F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49F03B841EAA26AE008B121F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49F03B831EAA26AE008B121F /* Richly.app */,
+				49F03B971EAA26AE008B121F /* RichlyTests.xctest */,
+				49F03BA21EAA26AE008B121F /* RichlyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49F03B851EAA26AE008B121F /* Richly */ = {
+			isa = PBXGroup;
+			children = (
+				49F03B861EAA26AE008B121F /* AppDelegate.swift */,
+				49F03B881EAA26AE008B121F /* ViewController.swift */,
+				49F03B8A1EAA26AE008B121F /* Main.storyboard */,
+				49F03B8D1EAA26AE008B121F /* Assets.xcassets */,
+				49F03B8F1EAA26AE008B121F /* LaunchScreen.storyboard */,
+				49F03B921EAA26AE008B121F /* Info.plist */,
+			);
+			path = Richly;
+			sourceTree = "<group>";
+		};
+		49F03B9A1EAA26AE008B121F /* RichlyTests */ = {
+			isa = PBXGroup;
+			children = (
+				49F03B9B1EAA26AE008B121F /* RichlyTests.swift */,
+				49F03B9D1EAA26AE008B121F /* Info.plist */,
+			);
+			path = RichlyTests;
+			sourceTree = "<group>";
+		};
+		49F03BA51EAA26AE008B121F /* RichlyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49F03BA61EAA26AE008B121F /* RichlyUITests.swift */,
+				49F03BA81EAA26AE008B121F /* Info.plist */,
+			);
+			path = RichlyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49F03B821EAA26AE008B121F /* Richly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F03BAB1EAA26AE008B121F /* Build configuration list for PBXNativeTarget "Richly" */;
+			buildPhases = (
+				49F03B7F1EAA26AE008B121F /* Sources */,
+				49F03B801EAA26AE008B121F /* Frameworks */,
+				49F03B811EAA26AE008B121F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Richly;
+			productName = Richly;
+			productReference = 49F03B831EAA26AE008B121F /* Richly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49F03B961EAA26AE008B121F /* RichlyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F03BAE1EAA26AE008B121F /* Build configuration list for PBXNativeTarget "RichlyTests" */;
+			buildPhases = (
+				49F03B931EAA26AE008B121F /* Sources */,
+				49F03B941EAA26AE008B121F /* Frameworks */,
+				49F03B951EAA26AE008B121F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49F03B991EAA26AE008B121F /* PBXTargetDependency */,
+			);
+			name = RichlyTests;
+			productName = RichlyTests;
+			productReference = 49F03B971EAA26AE008B121F /* RichlyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49F03BA11EAA26AE008B121F /* RichlyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F03BB11EAA26AE008B121F /* Build configuration list for PBXNativeTarget "RichlyUITests" */;
+			buildPhases = (
+				49F03B9E1EAA26AE008B121F /* Sources */,
+				49F03B9F1EAA26AE008B121F /* Frameworks */,
+				49F03BA01EAA26AE008B121F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49F03BA41EAA26AE008B121F /* PBXTargetDependency */,
+			);
+			name = RichlyUITests;
+			productName = RichlyUITests;
+			productReference = 49F03BA21EAA26AE008B121F /* RichlyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49F03B7B1EAA26AE008B121F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Andrew Bellamy";
+				TargetAttributes = {
+					49F03B821EAA26AE008B121F = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 24SM6522LU;
+						ProvisioningStyle = Automatic;
+					};
+					49F03B961EAA26AE008B121F = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 24SM6522LU;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 49F03B821EAA26AE008B121F;
+					};
+					49F03BA11EAA26AE008B121F = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 24SM6522LU;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 49F03B821EAA26AE008B121F;
+					};
+				};
+			};
+			buildConfigurationList = 49F03B7E1EAA26AE008B121F /* Build configuration list for PBXProject "Richly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49F03B7A1EAA26AE008B121F;
+			productRefGroup = 49F03B841EAA26AE008B121F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49F03B821EAA26AE008B121F /* Richly */,
+				49F03B961EAA26AE008B121F /* RichlyTests */,
+				49F03BA11EAA26AE008B121F /* RichlyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49F03B811EAA26AE008B121F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F03B911EAA26AE008B121F /* LaunchScreen.storyboard in Resources */,
+				49F03B8E1EAA26AE008B121F /* Assets.xcassets in Resources */,
+				49F03B8C1EAA26AE008B121F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F03B951EAA26AE008B121F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F03BA01EAA26AE008B121F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49F03B7F1EAA26AE008B121F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F03B891EAA26AE008B121F /* ViewController.swift in Sources */,
+				49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F03B931EAA26AE008B121F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F03B9C1EAA26AE008B121F /* RichlyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F03B9E1EAA26AE008B121F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F03BA71EAA26AE008B121F /* RichlyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49F03B991EAA26AE008B121F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49F03B821EAA26AE008B121F /* Richly */;
+			targetProxy = 49F03B981EAA26AE008B121F /* PBXContainerItemProxy */;
+		};
+		49F03BA41EAA26AE008B121F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49F03B821EAA26AE008B121F /* Richly */;
+			targetProxy = 49F03BA31EAA26AE008B121F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		49F03B8A1EAA26AE008B121F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49F03B8B1EAA26AE008B121F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		49F03B8F1EAA26AE008B121F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49F03B901EAA26AE008B121F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49F03BA91EAA26AE008B121F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49F03BAA1EAA26AE008B121F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49F03BAC1EAA26AE008B121F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 24SM6522LU;
+				INFOPLIST_FILE = Richly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AndrewBellamy.Richly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		49F03BAD1EAA26AE008B121F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 24SM6522LU;
+				INFOPLIST_FILE = Richly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AndrewBellamy.Richly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		49F03BAF1EAA26AE008B121F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 24SM6522LU;
+				INFOPLIST_FILE = RichlyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AndrewBellamy.RichlyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Richly.app/Richly";
+			};
+			name = Debug;
+		};
+		49F03BB01EAA26AE008B121F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 24SM6522LU;
+				INFOPLIST_FILE = RichlyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AndrewBellamy.RichlyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Richly.app/Richly";
+			};
+			name = Release;
+		};
+		49F03BB21EAA26AE008B121F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 24SM6522LU;
+				INFOPLIST_FILE = RichlyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AndrewBellamy.RichlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Richly;
+			};
+			name = Debug;
+		};
+		49F03BB31EAA26AE008B121F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 24SM6522LU;
+				INFOPLIST_FILE = RichlyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AndrewBellamy.RichlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Richly;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49F03B7E1EAA26AE008B121F /* Build configuration list for PBXProject "Richly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F03BA91EAA26AE008B121F /* Debug */,
+				49F03BAA1EAA26AE008B121F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F03BAB1EAA26AE008B121F /* Build configuration list for PBXNativeTarget "Richly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F03BAC1EAA26AE008B121F /* Debug */,
+				49F03BAD1EAA26AE008B121F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49F03BAE1EAA26AE008B121F /* Build configuration list for PBXNativeTarget "RichlyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F03BAF1EAA26AE008B121F /* Debug */,
+				49F03BB01EAA26AE008B121F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49F03BB11EAA26AE008B121F /* Build configuration list for PBXNativeTarget "RichlyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F03BB21EAA26AE008B121F /* Debug */,
+				49F03BB31EAA26AE008B121F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49F03B7B1EAA26AE008B121F /* Project object */;
+}
