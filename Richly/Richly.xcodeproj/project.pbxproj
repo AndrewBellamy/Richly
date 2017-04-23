@@ -28,6 +28,7 @@
 		49F03BCC1EAA2955008B121F /* JBDatePickerWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BBF1EAA2955008B121F /* JBDatePickerWeekView.swift */; };
 		49F03BCD1EAA2955008B121F /* JBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BC01EAA2955008B121F /* JBFont.swift */; };
 		49F03BD01EAA2B47008B121F /* JBDatePicker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 49F03BCF1EAA2B46008B121F /* JBDatePicker.podspec */; };
+		49F3CF251EACD20D00CC878B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 49F3CF241EACD20D00CC878B /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		49F03BC01EAA2955008B121F /* JBFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBFont.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBFont.swift"; sourceTree = "<group>"; };
 		49F03BCE1EAA2A2A008B121F /* JBDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JBDatePicker.h; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/JBDatePicker.h"; sourceTree = "<group>"; };
 		49F03BCF1EAA2B46008B121F /* JBDatePicker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JBDatePicker.podspec; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker.podspec"; sourceTree = "<group>"; };
+		49F3CF241EACD20D00CC878B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				49F03BC01EAA2955008B121F /* JBFont.swift */,
 				49F03BCE1EAA2A2A008B121F /* JBDatePicker.h */,
 				49F03BCF1EAA2B46008B121F /* JBDatePicker.podspec */,
+				49F3CF241EACD20D00CC878B /* Podfile */,
 			);
 			path = Richly;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F3CF251EACD20D00CC878B /* Podfile in Resources */,
 				49F03BD01EAA2B47008B121F /* JBDatePicker.podspec in Resources */,
 				49F03B911EAA26AE008B121F /* LaunchScreen.storyboard in Resources */,
 				49F03B8E1EAA26AE008B121F /* Assets.xcassets in Resources */,
@@ -574,6 +578,7 @@
 				49F03BAD1EAA26AE008B121F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49F03BAE1EAA26AE008B121F /* Build configuration list for PBXNativeTarget "RichlyTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +587,7 @@
 				49F03BB01EAA26AE008B121F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49F03BB11EAA26AE008B121F /* Build configuration list for PBXNativeTarget "RichlyUITests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +596,7 @@
 				49F03BB31EAA26AE008B121F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

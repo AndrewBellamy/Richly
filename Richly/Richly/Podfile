@@ -1,0 +1,9 @@
+platform :ios, '10.3'
+
+target 'Richly' do
+use_frameworks!
+target 'RichlyTests' do
+inherit! :search_paths
+pod 'Nimble'
+end
+end
