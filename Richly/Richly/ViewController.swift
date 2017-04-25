@@ -9,13 +9,12 @@
 import UIKit
 //import JBDatePicker
 
-class ViewController: UIViewController, JBDatePickerViewDelegate {
+class ViewController: UIViewController {
 
     
-    @IBOutlet weak var datePicker: JBDatePickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
