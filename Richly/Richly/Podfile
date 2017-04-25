@@ -4,6 +4,7 @@ target 'Richly' do
 use_frameworks!
 target 'RichlyTests' do
 inherit! :search_paths
+pod 'KIF'
 pod 'Nimble'
 end
 end

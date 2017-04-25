@@ -7,27 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4940ACB41EAF3D740047A71A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4940ACB31EAF3D740047A71A /* Info.plist */; };
+		4940ACB61EAF41420047A71A /* output.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4940ACB51EAF41420047A71A /* output.txt */; };
+		4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */; };
+		4940ACBD1EAF52420047A71A /* ParametersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */; };
+		4940ACBF1EAF5FD10047A71A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACBE1EAF5FD10047A71A /* DataController.swift */; };
 		49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B861EAA26AE008B121F /* AppDelegate.swift */; };
 		49F03B891EAA26AE008B121F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B881EAA26AE008B121F /* ViewController.swift */; };
 		49F03B8C1EAA26AE008B121F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F03B8A1EAA26AE008B121F /* Main.storyboard */; };
 		49F03B8E1EAA26AE008B121F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F03B8D1EAA26AE008B121F /* Assets.xcassets */; };
-		49F03B911EAA26AE008B121F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F03B8F1EAA26AE008B121F /* LaunchScreen.storyboard */; };
 		49F03B9C1EAA26AE008B121F /* RichlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B9B1EAA26AE008B121F /* RichlyTests.swift */; };
 		49F03BA71EAA26AE008B121F /* RichlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BA61EAA26AE008B121F /* RichlyUITests.swift */; };
-		49F03BC11EAA2955008B121F /* JBDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BB41EAA2955008B121F /* JBDate.swift */; };
-		49F03BC21EAA2955008B121F /* JBDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BB51EAA2955008B121F /* JBDateExtension.swift */; };
-		49F03BC31EAA2955008B121F /* JBDatePickerContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BB61EAA2955008B121F /* JBDatePickerContentVC.swift */; };
-		49F03BC41EAA2955008B121F /* JBDatePickerDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BB71EAA2955008B121F /* JBDatePickerDayView.swift */; };
-		49F03BC51EAA2955008B121F /* JBDatePickerEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BB81EAA2955008B121F /* JBDatePickerEnums.swift */; };
-		49F03BC61EAA2955008B121F /* JBDatePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BB91EAA2955008B121F /* JBDatePickerManager.swift */; };
-		49F03BC71EAA2955008B121F /* JBDatePickerMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BBA1EAA2955008B121F /* JBDatePickerMonthView.swift */; };
-		49F03BC81EAA2955008B121F /* JBDatePickerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BBB1EAA2955008B121F /* JBDatePickerSelectionView.swift */; };
-		49F03BC91EAA2955008B121F /* JBDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BBC1EAA2955008B121F /* JBDatePickerView.swift */; };
-		49F03BCA1EAA2955008B121F /* JBDatePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BBD1EAA2955008B121F /* JBDatePickerViewDelegate.swift */; };
-		49F03BCB1EAA2955008B121F /* JBDatePickerWeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BBE1EAA2955008B121F /* JBDatePickerWeekDaysView.swift */; };
-		49F03BCC1EAA2955008B121F /* JBDatePickerWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BBF1EAA2955008B121F /* JBDatePickerWeekView.swift */; };
-		49F03BCD1EAA2955008B121F /* JBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03BC01EAA2955008B121F /* JBFont.swift */; };
-		49F03BD01EAA2B47008B121F /* JBDatePicker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 49F03BCF1EAA2B46008B121F /* JBDatePicker.podspec */; };
 		49F3CF251EACD20D00CC878B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 49F3CF241EACD20D00CC878B /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -49,34 +39,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4940ACB31EAF3D740047A71A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4940ACB51EAF41420047A71A /* output.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = output.txt; sourceTree = "<group>"; };
+		4940ACB81EAF43620047A71A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParametersTableViewController.swift; path = ../ParametersTableViewController.swift; sourceTree = "<group>"; };
+		4940ACBE1EAF5FD10047A71A /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		49F03B831EAA26AE008B121F /* Richly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Richly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F03B861EAA26AE008B121F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F03B881EAA26AE008B121F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49F03B8B1EAA26AE008B121F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49F03B8D1EAA26AE008B121F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		49F03B901EAA26AE008B121F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		49F03B921EAA26AE008B121F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49F03B971EAA26AE008B121F /* RichlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RichlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F03B9B1EAA26AE008B121F /* RichlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichlyTests.swift; sourceTree = "<group>"; };
 		49F03B9D1EAA26AE008B121F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49F03BA21EAA26AE008B121F /* RichlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RichlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F03BA61EAA26AE008B121F /* RichlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichlyUITests.swift; sourceTree = "<group>"; };
 		49F03BA81EAA26AE008B121F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49F03BB41EAA2955008B121F /* JBDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDate.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDate.swift"; sourceTree = "<group>"; };
-		49F03BB51EAA2955008B121F /* JBDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDateExtension.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDateExtension.swift"; sourceTree = "<group>"; };
-		49F03BB61EAA2955008B121F /* JBDatePickerContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerContentVC.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerContentVC.swift"; sourceTree = "<group>"; };
-		49F03BB71EAA2955008B121F /* JBDatePickerDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerDayView.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerDayView.swift"; sourceTree = "<group>"; };
-		49F03BB81EAA2955008B121F /* JBDatePickerEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerEnums.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerEnums.swift"; sourceTree = "<group>"; };
-		49F03BB91EAA2955008B121F /* JBDatePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerManager.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerManager.swift"; sourceTree = "<group>"; };
-		49F03BBA1EAA2955008B121F /* JBDatePickerMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerMonthView.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerMonthView.swift"; sourceTree = "<group>"; };
-		49F03BBB1EAA2955008B121F /* JBDatePickerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerSelectionView.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerSelectionView.swift"; sourceTree = "<group>"; };
-		49F03BBC1EAA2955008B121F /* JBDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerView.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerView.swift"; sourceTree = "<group>"; };
-		49F03BBD1EAA2955008B121F /* JBDatePickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerViewDelegate.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerViewDelegate.swift"; sourceTree = "<group>"; };
-		49F03BBE1EAA2955008B121F /* JBDatePickerWeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerWeekDaysView.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerWeekDaysView.swift"; sourceTree = "<group>"; };
-		49F03BBF1EAA2955008B121F /* JBDatePickerWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBDatePickerWeekView.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBDatePickerWeekView.swift"; sourceTree = "<group>"; };
-		49F03BC01EAA2955008B121F /* JBFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JBFont.swift; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/Classes/JBFont.swift"; sourceTree = "<group>"; };
-		49F03BCE1EAA2A2A008B121F /* JBDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JBDatePicker.h; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker/JBDatePicker.h"; sourceTree = "<group>"; };
-		49F03BCF1EAA2B46008B121F /* JBDatePicker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JBDatePicker.podspec; path = "../../../../../Downloads/JBDatePicker-master/JBDatePicker.podspec"; sourceTree = "<group>"; };
 		49F3CF241EACD20D00CC878B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,28 +106,16 @@
 		49F03B851EAA26AE008B121F /* Richly */ = {
 			isa = PBXGroup;
 			children = (
+				4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */,
 				49F03B861EAA26AE008B121F /* AppDelegate.swift */,
 				49F03B881EAA26AE008B121F /* ViewController.swift */,
 				49F03B8A1EAA26AE008B121F /* Main.storyboard */,
+				4940ACB31EAF3D740047A71A /* Info.plist */,
 				49F03B8D1EAA26AE008B121F /* Assets.xcassets */,
-				49F03B8F1EAA26AE008B121F /* LaunchScreen.storyboard */,
-				49F03B921EAA26AE008B121F /* Info.plist */,
-				49F03BB41EAA2955008B121F /* JBDate.swift */,
-				49F03BB51EAA2955008B121F /* JBDateExtension.swift */,
-				49F03BB61EAA2955008B121F /* JBDatePickerContentVC.swift */,
-				49F03BB71EAA2955008B121F /* JBDatePickerDayView.swift */,
-				49F03BB81EAA2955008B121F /* JBDatePickerEnums.swift */,
-				49F03BB91EAA2955008B121F /* JBDatePickerManager.swift */,
-				49F03BBA1EAA2955008B121F /* JBDatePickerMonthView.swift */,
-				49F03BBB1EAA2955008B121F /* JBDatePickerSelectionView.swift */,
-				49F03BBC1EAA2955008B121F /* JBDatePickerView.swift */,
-				49F03BBD1EAA2955008B121F /* JBDatePickerViewDelegate.swift */,
-				49F03BBE1EAA2955008B121F /* JBDatePickerWeekDaysView.swift */,
-				49F03BBF1EAA2955008B121F /* JBDatePickerWeekView.swift */,
-				49F03BC01EAA2955008B121F /* JBFont.swift */,
-				49F03BCE1EAA2A2A008B121F /* JBDatePicker.h */,
-				49F03BCF1EAA2B46008B121F /* JBDatePicker.podspec */,
 				49F3CF241EACD20D00CC878B /* Podfile */,
+				4940ACB51EAF41420047A71A /* output.txt */,
+				4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */,
+				4940ACBE1EAF5FD10047A71A /* DataController.swift */,
 			);
 			path = Richly;
 			sourceTree = "<group>";
@@ -282,10 +248,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4940ACB41EAF3D740047A71A /* Info.plist in Resources */,
 				49F3CF251EACD20D00CC878B /* Podfile in Resources */,
-				49F03BD01EAA2B47008B121F /* JBDatePicker.podspec in Resources */,
-				49F03B911EAA26AE008B121F /* LaunchScreen.storyboard in Resources */,
 				49F03B8E1EAA26AE008B121F /* Assets.xcassets in Resources */,
+				4940ACB61EAF41420047A71A /* output.txt in Resources */,
 				49F03B8C1EAA26AE008B121F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,21 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4940ACBF1EAF5FD10047A71A /* DataController.swift in Sources */,
 				49F03B891EAA26AE008B121F /* ViewController.swift in Sources */,
-				49F03BCB1EAA2955008B121F /* JBDatePickerWeekDaysView.swift in Sources */,
-				49F03BC31EAA2955008B121F /* JBDatePickerContentVC.swift in Sources */,
-				49F03BC71EAA2955008B121F /* JBDatePickerMonthView.swift in Sources */,
-				49F03BCD1EAA2955008B121F /* JBFont.swift in Sources */,
-				49F03BCC1EAA2955008B121F /* JBDatePickerWeekView.swift in Sources */,
-				49F03BC81EAA2955008B121F /* JBDatePickerSelectionView.swift in Sources */,
-				49F03BC91EAA2955008B121F /* JBDatePickerView.swift in Sources */,
+				4940ACBD1EAF52420047A71A /* ParametersTableViewController.swift in Sources */,
+				4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */,
 				49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */,
-				49F03BC51EAA2955008B121F /* JBDatePickerEnums.swift in Sources */,
-				49F03BC11EAA2955008B121F /* JBDate.swift in Sources */,
-				49F03BC21EAA2955008B121F /* JBDateExtension.swift in Sources */,
-				49F03BC41EAA2955008B121F /* JBDatePickerDayView.swift in Sources */,
-				49F03BC61EAA2955008B121F /* JBDatePickerManager.swift in Sources */,
-				49F03BCA1EAA2955008B121F /* JBDatePickerViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,14 +323,6 @@
 				49F03B8B1EAA26AE008B121F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		49F03B8F1EAA26AE008B121F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49F03B901EAA26AE008B121F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -599,6 +547,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4940ACB81EAF43620047A71A /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 4940ACB81EAF43620047A71A /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 49F03B7B1EAA26AE008B121F /* Project object */;
 }
