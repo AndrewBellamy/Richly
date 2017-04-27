@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var journalTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //topLabel.text = "Richly"

@@ -11,7 +11,7 @@
 		4940ACB61EAF41420047A71A /* output.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4940ACB51EAF41420047A71A /* output.txt */; };
 		4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */; };
 		4940ACBD1EAF52420047A71A /* ParametersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */; };
-		4940ACBF1EAF5FD10047A71A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACBE1EAF5FD10047A71A /* DataController.swift */; };
+		4945A7C11EB21B5B00D6394E /* ParameterMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4945A7C01EB21B5B00D6394E /* ParameterMO.swift */; };
 		49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B861EAA26AE008B121F /* AppDelegate.swift */; };
 		49F03B891EAA26AE008B121F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B881EAA26AE008B121F /* ViewController.swift */; };
 		49F03B8C1EAA26AE008B121F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F03B8A1EAA26AE008B121F /* Main.storyboard */; };
@@ -43,7 +43,7 @@
 		4940ACB51EAF41420047A71A /* output.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = output.txt; sourceTree = "<group>"; };
 		4940ACB81EAF43620047A71A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParametersTableViewController.swift; path = ../ParametersTableViewController.swift; sourceTree = "<group>"; };
-		4940ACBE1EAF5FD10047A71A /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		4945A7C01EB21B5B00D6394E /* ParameterMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterMO.swift; sourceTree = "<group>"; };
 		49F03B831EAA26AE008B121F /* Richly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Richly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F03B861EAA26AE008B121F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F03B881EAA26AE008B121F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,13 +109,13 @@
 				4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */,
 				49F03B861EAA26AE008B121F /* AppDelegate.swift */,
 				49F03B881EAA26AE008B121F /* ViewController.swift */,
+				4945A7C01EB21B5B00D6394E /* ParameterMO.swift */,
 				49F03B8A1EAA26AE008B121F /* Main.storyboard */,
 				4940ACB31EAF3D740047A71A /* Info.plist */,
 				49F03B8D1EAA26AE008B121F /* Assets.xcassets */,
 				49F3CF241EACD20D00CC878B /* Podfile */,
 				4940ACB51EAF41420047A71A /* output.txt */,
 				4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */,
-				4940ACBE1EAF5FD10047A71A /* DataController.swift */,
 			);
 			path = Richly;
 			sourceTree = "<group>";
@@ -277,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4940ACBF1EAF5FD10047A71A /* DataController.swift in Sources */,
+				4945A7C11EB21B5B00D6394E /* ParameterMO.swift in Sources */,
 				49F03B891EAA26AE008B121F /* ViewController.swift in Sources */,
 				4940ACBD1EAF52420047A71A /* ParametersTableViewController.swift in Sources */,
 				4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */,
