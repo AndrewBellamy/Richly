@@ -3,16 +3,14 @@
     <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="entry" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="parameter" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Parameter" inverseName="journal" inverseEntity="Parameter" syncable="YES"/>
     </entity>
     <entity name="Parameter" representedClassName="Parameter" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="journal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Journal" inverseName="parameter" inverseEntity="Journal" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Journal" positionX="-36" positionY="-189" width="128" height="88"/>
-        <element name="Parameter" positionX="-63" positionY="69" width="128" height="103"/>
+        <element name="Journal" positionX="-36" positionY="-189" width="128" height="73"/>
+        <element name="Parameter" positionX="-63" positionY="69" width="128" height="88"/>
     </elements>
 </model>

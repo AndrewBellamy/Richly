@@ -11,14 +11,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var journalTable: UITableView!
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
-    
-
+    var params: [Parameter] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,27 +29,6 @@ class ViewController: UIViewController {
     @IBAction func upDate(_ sender: UIDatePicker) {
         let setDate = datePicker.date
         print(String(describing: setDate))
-        let file = "output.txt" //this is the file. we will write to and read from it
-        
-        let text = String(describing: setDate) //just a text
-        
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            
-            let path = dir.appendingPathComponent(file)
-            
-            //writing
-            do {
-                try text.write(to: path, atomically: false, encoding: String.Encoding.utf8)
-            }
-            catch {/* error handling here */}
-            
-            //reading
-            do {
-                let text2 = try String(contentsOf: path, encoding: String.Encoding.utf8)
-                print(String(text2)!)
-            }
-            catch {/* error handling here */}
-        }
         //TODO: use this to retrieve the data assigned to each date.
     }
     
@@ -60,16 +36,39 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "addEntry", sender: nil)
     }
     /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //Place any other segue preps in here by identifier.
-        if segue.identifier == "SymbolSelectSegue" {
-            segue.
-        }
-    }
-    */
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     //Place any other segue preps in here by identifier.
+     if segue.identifier == "SymbolSelectSegue" {
+     segue.
+     }
+     }
+     */
+    
     @IBAction func cancelEntry(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "cancelEntry", sender: nil)
     }
 
+    @IBAction func addParameter(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let journal = Parameter(context: context)
+        journal.type = "People"
+        journal.category = "Family"
+        journal.name = "James"
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        do {
+            params = try context.fetch(Parameter.fetchRequest())
+        } catch {
+            print("fetch failed")
+        }
+        
+        for item in params {
+            print("" + item.name!)
+        }
+    }
+
+    
 }
+
 
