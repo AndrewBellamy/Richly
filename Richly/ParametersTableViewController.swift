@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ParametersTableViewController: UITableViewController {
 
+    var params: [Parameter] = []
+    
+    @IBOutlet var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +22,20 @@ class ParametersTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let categorySort = NSSortDescriptor(key: "Parameter.name", ascending: true)
+        
+        do {
+            params = try context.fetch(Parameter.fetchRequest())
+        } catch {
+            print("fetch failed")
+        }
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +47,21 @@ class ParametersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return params.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+        cell.textLabel?.text = params[indexPath.item].name
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4940ACB41EAF3D740047A71A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4940ACB31EAF3D740047A71A /* Info.plist */; };
 		4940ACB61EAF41420047A71A /* output.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4940ACB51EAF41420047A71A /* output.txt */; };
 		4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */; };
 		4940ACBD1EAF52420047A71A /* ParametersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */; };
@@ -248,7 +247,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4940ACB41EAF3D740047A71A /* Info.plist in Resources */,
 				49F3CF251EACD20D00CC878B /* Podfile in Resources */,
 				49F03B8E1EAA26AE008B121F /* Assets.xcassets in Resources */,
 				4940ACB61EAF41420047A71A /* output.txt in Resources */,

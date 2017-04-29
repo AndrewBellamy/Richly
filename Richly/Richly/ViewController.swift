@@ -15,11 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
-    var params: [Parameter] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //topLabel.text = "Richly"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +50,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addParameter(_ sender: Any) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        /*
+        
         let journal = Parameter(context: context)
         journal.type = "People"
         journal.category = "Family"
@@ -57,15 +59,8 @@ class ViewController: UIViewController {
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
-        do {
-            params = try context.fetch(Parameter.fetchRequest())
-        } catch {
-            print("fetch failed")
-        }
         
-        for item in params {
-            print("" + item.name!)
-        }
+        */
     }
 
     
