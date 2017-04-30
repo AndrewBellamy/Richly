@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -15,12 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
+    var thisJournalDate: Date!
+    var journal: Journal?
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //topLabel.text = "Richly"
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,27 +30,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func upDate(_ sender: UIDatePicker) {
-        let setDate = datePicker.date
-        print(String(describing: setDate))
-        //TODO: use this to retrieve the data assigned to each date.
+         thisJournalDate = datePicker.date
     }
     
     @IBAction func addEntry(_ sender: UIButton) {
         performSegue(withIdentifier: "addEntry", sender: nil)
+        thisJournalDate = datePicker.date
+        journal = Journal(context: context)
+        journal?.date = thisJournalDate as NSDate?
     }
-    /*
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     //Place any other segue preps in here by identifier.
-     if segue.identifier == "SymbolSelectSegue" {
-     segue.
-     }
-     }
-     */
     
     @IBAction func cancelEntry(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "cancelEntry", sender: nil)
+        journal = nil
     }
 
+    @IBAction func openSettings(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "settings", sender: nil)
+    }
+    
     @IBAction func addParameter(_ sender: Any) {
         /*
         
@@ -58,12 +58,20 @@ class ViewController: UIViewController {
         journal.name = "James"
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
-        
         */
+        //deleteAllParamters()
     }
 
-    
+    func deleteAllParamters() {
+        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Parameter")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchrequest)
+        do {
+            try context.execute(batchDeleteRequest)
+        } catch {
+            print("couldn't delete everything")
+        }
+        
+    }
 }
 
 

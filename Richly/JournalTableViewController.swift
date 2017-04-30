@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class JournalTableViewController: UITableViewController {
     
-    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var journals: [Journal] = []
 
     @IBOutlet var tableview: UITableView!
     

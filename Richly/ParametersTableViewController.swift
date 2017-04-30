@@ -11,7 +11,10 @@ import CoreData
 
 class ParametersTableViewController: UITableViewController {
 
-    var params: [Parameter] = []
+    //var params: [Parameter] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    let selectionArray: [String] = ["People","Places","Activities","Weather","Chronology","Impact","Feelings","Experience"]
     
     @IBOutlet var tableview: UITableView!
     override func viewDidLoad() {
@@ -22,15 +25,13 @@ class ParametersTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let categorySort = NSSortDescriptor(key: "Parameter.name", ascending: true)
-        
+        /*
         do {
-            params = try context.fetch(Parameter.fetchRequest())
+            params = try context.fetch(getParameters()) as! [Parameter]
         } catch {
             print("fetch failed")
         }
-
+        */
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,18 +48,22 @@ class ParametersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return selectionArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int ) -> String {
+        return selectionArray[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return params.count
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
-        cell.textLabel?.text = params[indexPath.item].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath)
+        //cell.textLabel?.text = params[indexPath.item].name
         return cell
     }
     
@@ -108,4 +113,13 @@ class ParametersTableViewController: UITableViewController {
     }
     */
 
+    // MARK: - Core Data Save and Retrieve
+    func getParameters() -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Parameter")
+        
+        let categorySort = NSSortDescriptor(key: "name", ascending: true)
+        
+        fetchrequest.sortDescriptors = [categorySort]
+        return fetchrequest
+    }
 }
