@@ -90,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="EKa-jc-mar" id="ens-H9-Xao"/>
+                        <outlet property="containerView" destination="cdQ-Tc-kfO" id="keh-FB-Ta1"/>
                         <outlet property="datePicker" destination="Wh8-q9-ewz" id="ic8-FF-Fhv"/>
                         <segue destination="VDX-gw-RxW" kind="show" identifier="addEntry" id="Ufe-8k-0bp"/>
                         <segue destination="8KR-ra-Mfs" kind="presentation" identifier="settings" id="QDA-LZ-6a3"/>

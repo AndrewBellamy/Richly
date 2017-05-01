@@ -10,14 +10,18 @@
 import UIKit
 import CoreData
 
+var jRNotificationKey = "richly.journalRetrival.notificationKey"
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
     
-    var thisJournalDate: Date!
+    var thisJournalDate = NSDate()
     var journal: Journal?
+    var notificationCenter = NotificationCenter()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -30,14 +34,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func upDate(_ sender: UIDatePicker) {
-         thisJournalDate = datePicker.date
+        notifyJournalTableOfDate()
     }
     
     @IBAction func addEntry(_ sender: UIButton) {
         performSegue(withIdentifier: "addEntry", sender: nil)
-        thisJournalDate = datePicker.date
         journal = Journal(context: context)
-        journal?.date = thisJournalDate as NSDate?
+        journal?.date = thisJournalDate
     }
     
     @IBAction func cancelEntry(_ sender: UIBarButtonItem) {
@@ -60,6 +63,11 @@ class ViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         */
         //deleteAllParamters()
+    }
+    
+    func notifyJournalTableOfDate() {
+        thisJournalDate = datePicker.date as NSDate
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jRNotificationKey), object: nil, userInfo: ["newDate" : thisJournalDate])
     }
 
     func deleteAllParamters() {

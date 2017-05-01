@@ -24,11 +24,31 @@ class JournalTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: jRNotificationKey), object: nil, queue: nil, using: retrieveJournals)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func retrieveJournals(notification:Notification) {
+        guard let newDate = notification.userInfo!["newDate"] else {return}
+        
+        do {
+            journals = try context.fetch(getJournals(passedDate: newDate)) as! [Journal]
+        } catch {
+            print("No journals retrieved")
+        }
+    }
+    
+    func getJournals(passedDate: Any) -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Journal")
+        
+        let thisPredicate = NSPredicate(format: "date == %@", passedDate as! NSDate)
+        
+        fetchrequest.predicate = thisPredicate
+        return fetchrequest
     }
     
     // MARK: - Table view data source
