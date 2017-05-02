@@ -72,4 +72,73 @@ class SettingsViewController: UIViewController {
         }
         
     }
+    
+    func resetAllParameters() {
+        /*
+         
+         let journal = Parameter(context: context)
+         journal.type = "People"
+         journal.category = "Family"
+         journal.name = "James"
+         
+         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+         */
+        
+        let person = Person(context: context)
+        let place = Place(context: context)
+        let activity = Activity(context: context)
+        let weather = Weather(context: context)
+        let time = Time(context: context)
+        let impact = Impact(context: context)
+        let feeling = Feeling(context: context)
+        let consume = Consume(context: context)
+        
+        person.category = "Family"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        person.category = "Friends"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        place.category = "Home"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        place.category = "Outdoors"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        activity.category = "Past tense"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        activity.category = "Present tense"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        weather.category = "Temperature"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        weather.category = "Sky"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        time.category = "Interval"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        time.category = "Event"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        impact.category = "Problem"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        impact.category = "Solution"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        feeling.category = "Emotion"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        feeling.category = "Reaction"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        consume.category = "Visual"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        consume.category = "Audial"
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
 }

@@ -53,15 +53,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addParameter(_ sender: Any) {
-        /*
         
-        let journal = Parameter(context: context)
-        journal.type = "People"
-        journal.category = "Family"
-        journal.name = "James"
-        
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        */
         //deleteAllParamters()
     }
     

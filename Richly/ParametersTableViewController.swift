@@ -67,6 +67,29 @@ class ParametersTableViewController: UITableViewController {
         return cell
     }
     
+    //Selecting the add cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        let cellIdentifier = cell?.reuseIdentifier
+        let section = indexPath.section
+        print(String(describing: cellIdentifier))
+        print(String(describing: section))
+    }
+    
+    //Selecting the add cell
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        let cellIdentifier = cell?.reuseIdentifier
+        let section = indexPath.section
+        print(String(describing: cellIdentifier))
+        print(String(describing: section))
+    }
+    
+    /*
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
