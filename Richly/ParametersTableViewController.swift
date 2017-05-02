@@ -16,6 +16,8 @@ class ParametersTableViewController: UITableViewController {
     
     let selectionArray: [String] = ["People","Places","Activities","Weather","Chronology","Impact","Feelings","Experience"]
     
+    var selectedParamter:Int? = nil
+    
     @IBOutlet var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,14 @@ class ParametersTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
+        //Place any other segue preps in here by identifier.
+        if segue.identifier == "addParameter" {
+            let toViewController = segue.destination as! AddViewController
+            toViewController.parameterToAdd = (sender as AnyObject).tag
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -56,34 +66,14 @@ class ParametersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath)
-        //cell.textLabel?.text = params[indexPath.item].name
+        cell.tag = indexPath.section
         return cell
-    }
-    
-    //Selecting the add cell
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        let cellIdentifier = cell?.reuseIdentifier
-        let section = indexPath.section
-        print(String(describing: cellIdentifier))
-        print(String(describing: section))
-    }
-    
-    //Selecting the add cell
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        let cellIdentifier = cell?.reuseIdentifier
-        let section = indexPath.section
-        print(String(describing: cellIdentifier))
-        print(String(describing: section))
-        cell?.canPerformAction(<#T##action: Selector##Selector#>, withSender: <#T##Any?#>)
     }
     
     /*

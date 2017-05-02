@@ -49,7 +49,6 @@ class SettingsViewController: UIViewController {
         journals.removeAll()
         do {
             journals = try context.fetch(getJournals()) as! [Journal]
-            print(String(describing: journals[0].date))
         } catch {
             print("fetch failed")
         }
