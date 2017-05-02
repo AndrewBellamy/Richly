@@ -83,6 +83,7 @@ class ParametersTableViewController: UITableViewController {
         let section = indexPath.section
         print(String(describing: cellIdentifier))
         print(String(describing: section))
+        cell?.canPerformAction(<#T##action: Selector##Selector#>, withSender: <#T##Any?#>)
     }
     
     /*
