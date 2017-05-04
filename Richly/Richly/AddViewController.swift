@@ -12,7 +12,7 @@ import CoreData
 class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var parameterToAdd = Int()
-    var objectForJournal: parameterObject?
+    var objectForJournal = parameterObject()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var personCategory: [String] = ["Friend","Family"]
@@ -94,21 +94,14 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBAction func cancelAdd(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
-
-    @IBAction func saveParamter(_ sender: Any) {
-        objectForJournal!.name = nameEntered.text
-        objectForJournal!.category = categorySelected.text
-        objectForJournal!.section = parameterToAdd
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "saveUnwindSegue" {
+            objectForJournal.name = nameEntered.text
+            objectForJournal.category = categorySelected.text
+            objectForJournal.section = parameterToAdd
+        }
     }
-    */
 
 }
 

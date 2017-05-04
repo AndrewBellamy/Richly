@@ -47,57 +47,59 @@ class ParametersTableViewController: UITableViewController {
     }
     
     @IBAction func unWind(segue: UIStoryboardSegue) {
-        if let sourceViewController = segue.source as? AddViewController {
+            let sourceViewController = segue.source as! AddViewController
             dataReceived = sourceViewController.objectForJournal
-        }
-        let rowNumber = tableview.numberOfRows(inSection: dataReceived.section)
-        switch dataReceived.section {
-        case 0:
-            let person = Person(context:context)
-            person.name = dataReceived.name
-            person.category = dataReceived.category
-            journal?.addToPerson(person)
-        case 1:
-            let place = Place(context:context)
-            place.name = dataReceived.name
-            place.category = dataReceived.category
-            journal?.addToPlace(place)
-        case 2:
-            let activity = Activity(context:context)
-            activity.name = dataReceived.name
-            activity.category = dataReceived.category
-            journal?.addToActivity(activity)
-        case 3:
-            let weather = Weather(context:context)
-            weather.name = dataReceived.name
-            weather.category = dataReceived.category
-            journal?.addToWeather(weather)
-        case 4:
-            let time = Time(context:context)
-            time.name = dataReceived.name
-            time.category = dataReceived.category
-            journal?.addToTime(time)
-        case 5:
-            let impact = Impact(context:context)
-            impact.name = dataReceived.name
-            impact.category = dataReceived.category
-            journal?.addToImpact(impact)
-        case 6:
-            let feeling = Feeling(context:context)
-            feeling.name = dataReceived.name
-            feeling.category = dataReceived.category
-            journal?.addToFeeling(feeling)
-        case 7:
-            let consume = Consume(context:context)
-            consume.name = dataReceived.name
-            consume.category = dataReceived.category
-            journal?.addToConsume(consume)
-        default:
-            print("No parameters have been returned.")
-        }
-        tableview.beginUpdates()
-        tableview.insertRows(at: [IndexPath(row: rowNumber + 1, section: dataReceived.section)], with: .fade)
-        tableview.endUpdates()
+            //let rowNumber = tableview.numberOfRows(inSection: dataReceived.section)
+            switch dataReceived.section {
+            case 0:
+                let person = Person(context:context)
+                person.name = dataReceived.name
+                person.category = dataReceived.category
+                journal?.addToPerson(person)
+            case 1:
+                let place = Place(context:context)
+                place.name = dataReceived.name
+                place.category = dataReceived.category
+                journal?.addToPlace(place)
+            case 2:
+                let activity = Activity(context:context)
+                activity.name = dataReceived.name
+                activity.category = dataReceived.category
+                journal?.addToActivity(activity)
+            case 3:
+                let weather = Weather(context:context)
+                weather.name = dataReceived.name
+                weather.category = dataReceived.category
+                journal?.addToWeather(weather)
+            case 4:
+                let time = Time(context:context)
+                time.name = dataReceived.name
+                time.category = dataReceived.category
+                journal?.addToTime(time)
+            case 5:
+                let impact = Impact(context:context)
+                impact.name = dataReceived.name
+                impact.category = dataReceived.category
+                journal?.addToImpact(impact)
+            case 6:
+                let feeling = Feeling(context:context)
+                feeling.name = dataReceived.name
+                feeling.category = dataReceived.category
+                journal?.addToFeeling(feeling)
+            case 7:
+                let consume = Consume(context:context)
+                consume.name = dataReceived.name
+                consume.category = dataReceived.category
+                journal?.addToConsume(consume)
+            default:
+                print("No parameters have been returned.")
+            }
+        
+        let thisObject = journal?.person
+        let thisArray = Array(thisObject!)
+        /*
+        tableview.insertRows(at: [IndexPath(row: rowNumber, section: dataReceived.section)], with: .fade)
+        */
     }
 
     // MARK: - Table view data source
@@ -115,6 +117,7 @@ class ParametersTableViewController: UITableViewController {
         return 1
     }
 
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath)

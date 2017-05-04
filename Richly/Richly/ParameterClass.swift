@@ -9,7 +9,7 @@
 import Foundation
 
 class parameterObject {
-    var name:String? = nil
-    var category:String? = nil
+    var name:String!
+    var category:String!
     var section:Int!
 }
