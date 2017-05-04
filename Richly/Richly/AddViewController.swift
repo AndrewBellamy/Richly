@@ -9,9 +9,11 @@
 import UIKit
 import CoreData
 
-class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var parameterToAdd = Int()
+    var objectForJournal: parameterObject?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var personCategory: [String] = ["Friend","Family"]
     var placeCategory: [String] = ["Home","Outdoors"]
@@ -55,7 +57,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             topLabel.title = "Add Experience"
             currentCategory = consumeCategory
         default:
-            topLabel.title = "Add"
+            cancelAdd((Any).self)
         }
     }
 
@@ -78,12 +80,26 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categorySelected.text = currentCategory[row]
+        nameEntered.isEnabled = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameEntered {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     @IBAction func cancelAdd(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
 
+    @IBAction func saveParamter(_ sender: Any) {
+        objectForJournal!.name = nameEntered.text
+        objectForJournal!.category = categorySelected.text
+        objectForJournal!.section = parameterToAdd
+    }
     /*
     // MARK: - Navigation
 
@@ -95,3 +111,4 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     */
 
 }
+

@@ -11,6 +11,7 @@
 		4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */; };
 		4940ACBD1EAF52420047A71A /* ParametersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */; };
 		497535171EB8762000893172 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497535161EB8762000893172 /* AddViewController.swift */; };
+		4981833E1EBB1D74003006A4 /* ParameterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4981833D1EBB1D74003006A4 /* ParameterClass.swift */; };
 		499DC0BB1EB34DC7004A9187 /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499DC0BA1EB34DC7004A9187 /* JournalTableViewController.swift */; };
 		49A1D67E1EB5D6B600A5791B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A1D67D1EB5D6B600A5791B /* SettingsViewController.swift */; };
 		49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F03B861EAA26AE008B121F /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		4940ACB81EAF43620047A71A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParametersTableViewController.swift; path = ../ParametersTableViewController.swift; sourceTree = "<group>"; };
 		497535161EB8762000893172 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		4981833D1EBB1D74003006A4 /* ParameterClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterClass.swift; sourceTree = "<group>"; };
 		499DC0BA1EB34DC7004A9187 /* JournalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JournalTableViewController.swift; path = ../JournalTableViewController.swift; sourceTree = "<group>"; };
 		49A1D67D1EB5D6B600A5791B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		49F03B831EAA26AE008B121F /* Richly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Richly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				49F03B881EAA26AE008B121F /* ViewController.swift */,
 				49F03B8A1EAA26AE008B121F /* Main.storyboard */,
 				497535161EB8762000893172 /* AddViewController.swift */,
+				4981833D1EBB1D74003006A4 /* ParameterClass.swift */,
 				49A1D67D1EB5D6B600A5791B /* SettingsViewController.swift */,
 				4940ACB31EAF3D740047A71A /* Info.plist */,
 				49F03B8D1EAA26AE008B121F /* Assets.xcassets */,
@@ -286,6 +289,7 @@
 				497535171EB8762000893172 /* AddViewController.swift in Sources */,
 				4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */,
 				499DC0BB1EB34DC7004A9187 /* JournalTableViewController.swift in Sources */,
+				4981833E1EBB1D74003006A4 /* ParameterClass.swift in Sources */,
 				49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */,
 				49A1D67E1EB5D6B600A5791B /* SettingsViewController.swift in Sources */,
 			);
