@@ -70,7 +70,7 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="addEntry:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xZF-rY-dPd"/>
+                                            <segue destination="VDX-gw-RxW" kind="presentation" identifier="addEntry" modalTransitionStyle="flipHorizontal" id="nZ3-JD-Riy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -92,7 +92,6 @@
                         <outlet property="addButton" destination="EKa-jc-mar" id="ens-H9-Xao"/>
                         <outlet property="containerView" destination="cdQ-Tc-kfO" id="keh-FB-Ta1"/>
                         <outlet property="datePicker" destination="Wh8-q9-ewz" id="ic8-FF-Fhv"/>
-                        <segue destination="VDX-gw-RxW" kind="show" identifier="addEntry" id="Ufe-8k-0bp"/>
                         <segue destination="8KR-ra-Mfs" kind="presentation" identifier="settings" id="QDA-LZ-6a3"/>
                     </connections>
                 </viewController>
@@ -224,7 +223,7 @@
                                             <barButtonItem systemItem="cancel" id="sGT-Kh-FZ8">
                                                 <color key="tintColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="cancelEntry:" destination="VDX-gw-RxW" id="cVh-He-EFf"/>
+                                                    <segue destination="SlF-fs-tvC" kind="unwind" identifier="cancelAddEntry" unwindAction="unWindWithSegue:" id="6Qm-E7-lmw"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="uYG-od-qjG"/>
@@ -252,11 +251,9 @@
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="cancelEntry" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="puj-Aq-I5F"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2z-nI-ESH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SlF-fs-tvC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="778" y="139"/>
         </scene>
@@ -273,7 +270,7 @@
                                 <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xz9-Bl-4Qm" id="dyU-Jw-6TA">
-                                    <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -331,18 +328,18 @@
                                 <rect key="frame" x="0.0" y="100" width="288" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wLy-Mx-z26" id="HFF-NX-JTQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oKr-HY-2rQ">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6df-aV-d3T">
-                                            <rect key="frame" x="229" y="11" width="44" height="21"/>
+                                            <rect key="frame" x="229" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>

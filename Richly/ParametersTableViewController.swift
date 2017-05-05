@@ -23,6 +23,7 @@ class ParametersTableViewController: UITableViewController {
     @IBOutlet var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(clearJournal),name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
         if (journal == nil) {
             journal = Journal(context: context)
         }
@@ -47,6 +48,7 @@ class ParametersTableViewController: UITableViewController {
     }
     
     @IBAction func unWind(segue: UIStoryboardSegue) {
+        if(segue.identifier == "saveUnwindSegue") {
             let sourceViewController = segue.source as! AddViewController
             dataReceived = sourceViewController.objectForJournal
             //let rowNumber = tableview.numberOfRows(inSection: dataReceived.section)
@@ -94,14 +96,16 @@ class ParametersTableViewController: UITableViewController {
             default:
                 print("No parameters have been returned.")
             }
+            tableview.reloadData()
+        }
         
-        let thisObject = journal?.person
-        let thisArray = Array(thisObject!)
-        /*
-        tableview.insertRows(at: [IndexPath(row: rowNumber, section: dataReceived.section)], with: .fade)
-        */
     }
 
+    func clearJournal() {
+        context.delete(journal!)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -114,12 +118,104 @@ class ParametersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        var relArray : [Any] = []
+        switch section {
+        case 0:
+            let person = journal?.person
+            relArray = Array(person!)
+        case 1:
+            let place = journal?.place
+            relArray = Array(place!)
+        case 2:
+            let activity = journal?.activity
+            relArray = Array(activity!)
+        case 3:
+            let weather = journal?.weather
+            relArray = Array(weather!)
+        case 4:
+            let time = journal?.time
+            relArray = Array(time!)
+        case 5:
+            let impact = journal?.impact
+            relArray = Array(impact!)
+        case 6:
+            let feeling = journal?.feeling
+            relArray = Array(feeling!)
+        case 7:
+            let consume = journal?.consume
+            relArray = Array(consume!)
+        default:
+            print("Error: new section has been included")
+        }
+        return 1 + relArray.count
     }
 
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let rowsInSection = tableView.numberOfRows(inSection: indexPath.section) - 1
+        while indexPath.row != rowsInSection {
+            switch indexPath.section {
+            case 0:
+                let person = journal?.person
+                let personArray: [Person] = Array(person!) as! [Person]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (personArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (personArray[indexPath.row] as AnyObject).name
+                return cell
+            case 1:
+                let place = journal?.place
+                let placeArray: [Place] = Array(place!) as! [Place]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (placeArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (placeArray[indexPath.row] as AnyObject).name
+                return cell
+            case 2:
+                let activity = journal?.activity
+                let activityArray: [Activity] = Array(activity!) as! [Activity]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (activityArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (activityArray[indexPath.row] as AnyObject).name
+                return cell
+            case 3:
+                let weather = journal?.weather
+                let weatherArray: [Weather] = Array(weather!) as! [Weather]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (weatherArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (weatherArray[indexPath.row] as AnyObject).name
+                return cell
+            case 4:
+                let time = journal?.time
+                let timeArray: [Time] = Array(time!) as! [Time]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (timeArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (timeArray[indexPath.row] as AnyObject).name
+                return cell
+            case 5:
+                let impact = journal?.impact
+                let impactArray: [Impact] = Array(impact!) as! [Impact]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (impactArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (impactArray[indexPath.row] as AnyObject).name
+                return cell
+            case 6:
+                let feeling = journal?.feeling
+                let feelingArray: [Feeling] = Array(feeling!) as! [Feeling]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (feelingArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (feelingArray[indexPath.row] as AnyObject).name
+                return cell
+            case 7:
+                let consume = journal?.consume
+                let consumeArray: [Consume] = Array(consume!) as! [Consume]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
+                cell.textLabel?.text = (consumeArray[indexPath.row] as AnyObject).category
+                cell.detailTextLabel?.text = (consumeArray[indexPath.row] as AnyObject).name
+                return cell
+            default:
+                print("No section to add cells to")
+            }
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath)
         cell.tag = indexPath.section
         return cell
