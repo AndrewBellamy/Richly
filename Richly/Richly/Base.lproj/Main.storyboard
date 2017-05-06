@@ -430,6 +430,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                                         <connections>
+                                            <action selector="enteredName:" destination="3gK-TS-nhU" eventType="editingDidEnd" id="KSH-MV-Jls"/>
                                             <outlet property="delegate" destination="3gK-TS-nhU" id="XTK-qI-y5J"/>
                                         </connections>
                                     </textField>
@@ -454,7 +455,7 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="Zp4-eb-8B6"/>
-                                            <barButtonItem systemItem="done" id="PRk-LR-kum">
+                                            <barButtonItem enabled="NO" systemItem="done" id="PRk-LR-kum">
                                                 <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <segue destination="5Bv-ru-r1d" kind="unwind" identifier="saveUnwindSegue" unwindAction="unWindWithSegue:" id="ONa-Xg-gkd"/>
@@ -484,6 +485,7 @@
                     <connections>
                         <outlet property="categoryPicker" destination="0OI-Di-Nut" id="qpV-g9-UaM"/>
                         <outlet property="categorySelected" destination="qAE-mY-1xf" id="Abb-6v-Hjb"/>
+                        <outlet property="doneButton" destination="PRk-LR-kum" id="MaG-HF-Uay"/>
                         <outlet property="nameEntered" destination="Lbc-Um-38i" id="Mbd-bR-h7T"/>
                         <outlet property="topLabel" destination="YWV-2o-mUJ" id="FSQ-EO-qGJ"/>
                     </connections>

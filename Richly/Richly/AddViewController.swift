@@ -21,6 +21,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var categorySelected: UILabel!
     @IBOutlet weak var nameEntered: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         switch parameterToAdd {
@@ -81,6 +82,12 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             return false
         }
         return true
+    }
+    
+    @IBAction func enteredName(_ sender: UITextField) {
+        if(sender.text != "" || sender.text != nil) {
+            doneButton.isEnabled = true
+        }
     }
     
     @IBAction func cancelAdd(_ sender: Any) {
