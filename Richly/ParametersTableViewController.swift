@@ -11,16 +11,26 @@ import CoreData
 
 class ParametersTableViewController: UITableViewController {
 
-    //var params: [Parameter] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let selectionArray: [String] = ["People","Places","Activities","Weather","Chronology","Impact","Feelings","Experience"]
+    var editCellRow: Int!
+    var personArray: [Person] = []
+    var placeArray: [Place] = []
+    var activityArray: [Activity] = []
+    var weatherArray: [Weather] = []
+    var timeArray: [Time] = []
+    var impactArray: [Impact] = []
+    var feelingArray: [Feeling] = []
+    var consumeArray: [Consume] = []
     
     var selectedParamter:Int? = nil
     var dataReceived: parameterObject!
     var journal: Journal?
     
     @IBOutlet var tableview: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(clearJournal),name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
@@ -45,13 +55,50 @@ class ParametersTableViewController: UITableViewController {
             let toViewController = segue.destination as! AddViewController
             toViewController.parameterToAdd = (sender as AnyObject).tag
         }
+        if segue.identifier == "editParameter" {
+            let toViewController = segue.destination as! EditViewController
+            let cell = (sender as AnyObject)
+            editCellRow = tableView.indexPath(for: cell as! UITableViewCell)?.row
+            let editSection = tableView.indexPath(for: cell as! UITableViewCell)!.section
+            let editForJournal = parameterObject()
+            editForJournal.section = editSection
+            switch editSection {
+            case 0:
+                editForJournal.name = personArray[editCellRow].name!
+                editForJournal.category = personArray[editCellRow].category!
+            case 1:
+                editForJournal.name = placeArray[editCellRow].name!
+                editForJournal.category = placeArray[editCellRow].category!
+            case 2:
+                editForJournal.name = activityArray[editCellRow].name!
+                editForJournal.category = activityArray[editCellRow].category!
+            case 3:
+                editForJournal.name = weatherArray[editCellRow].name!
+                editForJournal.category = weatherArray[editCellRow].category!
+            case 4:
+                editForJournal.name = timeArray[editCellRow].name!
+                editForJournal.category = timeArray[editCellRow].category!
+            case 5:
+                editForJournal.name = impactArray[editCellRow].name!
+                editForJournal.category = impactArray[editCellRow].category!
+            case 6:
+                editForJournal.name = feelingArray[editCellRow].name!
+                editForJournal.category = feelingArray[editCellRow].category!
+            case 7:
+                editForJournal.name = consumeArray[editCellRow].name!
+                editForJournal.category = consumeArray[editCellRow].category!
+            default:
+                print("Section can not be edited")
+            }
+            
+            toViewController.objectForJournal = editForJournal
+        }
     }
     
     @IBAction func unWind(segue: UIStoryboardSegue) {
         if(segue.identifier == "saveUnwindSegue") {
             let sourceViewController = segue.source as! AddViewController
             dataReceived = sourceViewController.objectForJournal
-            //let rowNumber = tableview.numberOfRows(inSection: dataReceived.section)
             switch dataReceived.section {
             case 0:
                 let person = Person(context:context)
@@ -98,18 +145,80 @@ class ParametersTableViewController: UITableViewController {
             }
             tableview.reloadData()
         }
-        
+        if(segue.identifier == "changeUnwindSegue") {
+            let sourceViewController = segue.source as! EditViewController
+            dataReceived = sourceViewController.objectForJournal
+            switch dataReceived.section {
+            case 0:
+                let oldPerson = personArray[editCellRow]
+                journal?.removeFromPerson(oldPerson)
+                let person = Person(context:context)
+                person.name = dataReceived.name
+                person.category = dataReceived.category
+                journal?.addToPerson(person)
+            case 1:
+                let oldPlace = placeArray[editCellRow]
+                journal?.removeFromPlace(oldPlace)
+                let place = Place(context:context)
+                place.name = dataReceived.name
+                place.category = dataReceived.category
+                journal?.addToPlace(place)
+            case 2:
+                let oldActivity = activityArray[editCellRow]
+                journal?.removeFromActivity(oldActivity)
+                let activity = Activity(context:context)
+                activity.name = dataReceived.name
+                activity.category = dataReceived.category
+                journal?.addToActivity(activity)
+            case 3:
+                let oldWeather = weatherArray[editCellRow]
+                journal?.removeFromWeather(oldWeather)
+                let weather = Weather(context:context)
+                weather.name = dataReceived.name
+                weather.category = dataReceived.category
+                journal?.addToWeather(weather)
+            case 4:
+                let oldTime = timeArray[editCellRow]
+                journal?.removeFromTime(oldTime)
+                let time = Time(context:context)
+                time.name = dataReceived.name
+                time.category = dataReceived.category
+                journal?.addToTime(time)
+            case 5:
+                let oldImpact = impactArray[editCellRow]
+                journal?.removeFromImpact(oldImpact)
+                let impact = Impact(context:context)
+                impact.name = dataReceived.name
+                impact.category = dataReceived.category
+                journal?.addToImpact(impact)
+            case 6:
+                let oldFeeling = feelingArray[editCellRow]
+                journal?.removeFromFeeling(oldFeeling)
+                let feeling = Feeling(context:context)
+                feeling.name = dataReceived.name
+                feeling.category = dataReceived.category
+                journal?.addToFeeling(feeling)
+            case 7:
+                let oldConsume = consumeArray[editCellRow]
+                journal?.removeFromConsume(oldConsume)
+                let consume = Consume(context:context)
+                consume.name = dataReceived.name
+                consume.category = dataReceived.category
+                journal?.addToConsume(consume)
+            default:
+                print("No parameters have been returned.")
+            }
+            tableview.reloadData()
+        }
     }
 
     func clearJournal() {
         context.delete(journal!)
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table view data source and delegate
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return selectionArray.count
     }
     
@@ -158,56 +267,56 @@ class ParametersTableViewController: UITableViewController {
             switch indexPath.section {
             case 0:
                 let person = journal?.person
-                let personArray: [Person] = Array(person!) as! [Person]
+                personArray = Array(person!) as! [Person]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (personArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (personArray[indexPath.row] as AnyObject).name
                 return cell
             case 1:
                 let place = journal?.place
-                let placeArray: [Place] = Array(place!) as! [Place]
+                placeArray = Array(place!) as! [Place]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (placeArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (placeArray[indexPath.row] as AnyObject).name
                 return cell
             case 2:
                 let activity = journal?.activity
-                let activityArray: [Activity] = Array(activity!) as! [Activity]
+                activityArray = Array(activity!) as! [Activity]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (activityArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (activityArray[indexPath.row] as AnyObject).name
                 return cell
             case 3:
                 let weather = journal?.weather
-                let weatherArray: [Weather] = Array(weather!) as! [Weather]
+                weatherArray = Array(weather!) as! [Weather]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (weatherArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (weatherArray[indexPath.row] as AnyObject).name
                 return cell
             case 4:
                 let time = journal?.time
-                let timeArray: [Time] = Array(time!) as! [Time]
+                timeArray = Array(time!) as! [Time]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (timeArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (timeArray[indexPath.row] as AnyObject).name
                 return cell
             case 5:
                 let impact = journal?.impact
-                let impactArray: [Impact] = Array(impact!) as! [Impact]
+                impactArray = Array(impact!) as! [Impact]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (impactArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (impactArray[indexPath.row] as AnyObject).name
                 return cell
             case 6:
                 let feeling = journal?.feeling
-                let feelingArray: [Feeling] = Array(feeling!) as! [Feeling]
+                feelingArray = Array(feeling!) as! [Feeling]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (feelingArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (feelingArray[indexPath.row] as AnyObject).name
                 return cell
             case 7:
                 let consume = journal?.consume
-                let consumeArray: [Consume] = Array(consume!) as! [Consume]
+                consumeArray = Array(consume!) as! [Consume]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (consumeArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (consumeArray[indexPath.row] as AnyObject).name
@@ -220,59 +329,8 @@ class ParametersTableViewController: UITableViewController {
         cell.tag = indexPath.section
         return cell
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        <#code#>
-    }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: - Core Data Save and Retrieve
+    // MARK: - Core Data Retrieve and Delete
     func getParameters() -> NSFetchRequest<NSFetchRequestResult> {
         let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Parameter")
         

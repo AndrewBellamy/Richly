@@ -43,11 +43,12 @@ class ViewController: UIViewController {
             print("code for creating new journal")
         }
     }
-    
-    @IBAction func unWind(segue: UIStoryboardSegue) {
+
+    @IBAction func cancelAddEntry(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
     }
-
+    
     @IBAction func openSettings(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settings", sender: nil)
     }

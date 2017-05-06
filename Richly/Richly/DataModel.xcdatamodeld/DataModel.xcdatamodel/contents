@@ -53,14 +53,14 @@
         <relationship name="journal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Journal" inverseName="weather" inverseEntity="Journal" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Journal" positionX="-36" positionY="-190" width="128" height="193"/>
-        <element name="Person" positionX="-47" positionY="-441" width="128" height="88"/>
-        <element name="Place" positionX="-263" positionY="-297" width="128" height="88"/>
         <element name="Activity" positionX="232" positionY="-99" width="128" height="88"/>
-        <element name="Weather" positionX="-27" positionY="45" width="128" height="88"/>
-        <element name="Time" positionX="-236" positionY="54" width="128" height="88"/>
-        <element name="Impact" positionX="169" positionY="-297" width="128" height="88"/>
-        <element name="Feeling" positionX="178" positionY="63" width="128" height="88"/>
         <element name="Consume" positionX="-297" positionY="-120" width="128" height="88"/>
+        <element name="Feeling" positionX="178" positionY="63" width="128" height="88"/>
+        <element name="Impact" positionX="169" positionY="-297" width="128" height="88"/>
+        <element name="Journal" positionX="-36" positionY="-190" width="128" height="195"/>
+        <element name="Person" positionX="-47" positionY="-441" width="128" height="90"/>
+        <element name="Place" positionX="-263" positionY="-297" width="128" height="88"/>
+        <element name="Time" positionX="-236" positionY="54" width="128" height="88"/>
+        <element name="Weather" positionX="-27" positionY="45" width="128" height="88"/>
     </elements>
 </model>

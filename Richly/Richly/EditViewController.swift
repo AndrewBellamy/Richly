@@ -1,58 +1,61 @@
 //
-//  AddViewController.swift
+//  EditViewController.swift
 //  Richly
 //
-//  Created by Andrew Bellamy on 2/5/17.
+//  Created by Andrew Bellamy on 6/5/17.
 //  Copyright © 2017 Andrew Bellamy. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class EditViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    var parameterToAdd = Int()
-    var objectForJournal = parameterObject()
+    var objectForJournal: parameterObject!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let CategoryFarm = categoryFarm()
     var currentCategory: [String] = []
-
+    
     @IBOutlet weak var topLabel: UIBarButtonItem!
     @IBOutlet weak var categorySelected: UILabel!
     @IBOutlet weak var nameEntered: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        switch parameterToAdd {
+        switch objectForJournal.section {
         case 0:
-            topLabel.title = "Add Person"
+            topLabel.title = "Edit Person"
             currentCategory = CategoryFarm.personCategory
         case 1:
-            topLabel.title = "Add Place"
+            topLabel.title = "Edit Place"
             currentCategory = CategoryFarm.placeCategory
         case 2:
-            topLabel.title = "Add Activity"
+            topLabel.title = "Edit Activity"
             currentCategory = CategoryFarm.activityCategory
         case 3:
-            topLabel.title = "Add Weather"
+            topLabel.title = "Edit Weather"
             currentCategory = CategoryFarm.weatherCategory
         case 4:
-            topLabel.title = "Add Time"
+            topLabel.title = "Edit Time"
             currentCategory = CategoryFarm.timeCategory
         case 5:
-            topLabel.title = "Add Impact"
+            topLabel.title = "Edit Impact"
             currentCategory = CategoryFarm.impactCategory
         case 6:
-            topLabel.title = "Add Feeling"
+            topLabel.title = "Edit Feeling"
             currentCategory = CategoryFarm.feelingCategory
         case 7:
-            topLabel.title = "Add Experience"
+            topLabel.title = "Edit Experience"
             currentCategory = CategoryFarm.consumeCategory
         default:
-            cancelAdd((Any).self)
+            cancelEdit((Any).self)
         }
+        categoryPicker.selectRow(currentCategory.index(of: objectForJournal.category)!, inComponent: 0, animated: true)
+        nameEntered.text = objectForJournal.name
+        categorySelected.text = objectForJournal.category
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,7 +75,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categorySelected.text = currentCategory[row]
-        nameEntered.isEnabled = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -83,17 +85,17 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         return true
     }
     
-    @IBAction func cancelAdd(_ sender: Any) {
+    @IBAction func cancelEdit(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveUnwindSegue" {
+        if segue.identifier == "changeUnwindSegue" {
             objectForJournal.name = nameEntered.text
             objectForJournal.category = categorySelected.text
-            objectForJournal.section = parameterToAdd
         }
     }
-
+    
 }
+
 
