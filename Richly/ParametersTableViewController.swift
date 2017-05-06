@@ -329,6 +329,97 @@ class ParametersTableViewController: UITableViewController {
         cell.tag = indexPath.section
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        var edit = Bool()
+        switch indexPath.section {
+        case 0:
+            if(indexPath.row != (personArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        case 1:
+            if(indexPath.row != (placeArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        case 2:
+            if(indexPath.row != (activityArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        case 3:
+            if(indexPath.row != (weatherArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        case 4:
+            if(indexPath.row != (timeArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        case 5:
+            if(indexPath.row != (impactArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        case 6:
+            if(indexPath.row != (feelingArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        case 7:
+            if(indexPath.row != (consumeArray.count)) {
+                edit = true
+            } else {
+                edit = false
+            }
+        default:
+            edit = false
+        }
+        return edit
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            switch indexPath.section {
+            case 0:
+                let oldPerson = personArray[indexPath.row]
+                journal?.removeFromPerson(oldPerson)
+            case 1:
+                let oldPlace = placeArray[indexPath.row]
+                journal?.removeFromPlace(oldPlace)
+            case 2:
+                let oldActivity = activityArray[indexPath.row]
+                journal?.removeFromActivity(oldActivity)
+            case 3:
+                let oldWeather = weatherArray[indexPath.row]
+                journal?.removeFromWeather(oldWeather)
+            case 4:
+                let oldTime = timeArray[indexPath.row]
+                journal?.removeFromTime(oldTime)
+            case 5:
+                let oldImpact = impactArray[indexPath.row]
+                journal?.removeFromImpact(oldImpact)
+            case 6:
+                let oldFeeling = feelingArray[indexPath.row]
+                journal?.removeFromFeeling(oldFeeling)
+            case 7:
+                let oldConsume = consumeArray[indexPath.row]
+                journal?.removeFromConsume(oldConsume)
+            default:
+                print("Nothing to remove")
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
     // MARK: - Core Data Retrieve and Delete
     func getParameters() -> NSFetchRequest<NSFetchRequestResult> {
