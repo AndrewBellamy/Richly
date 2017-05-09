@@ -34,6 +34,7 @@ class ParametersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(clearJournal),name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(postJournal),name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
         if (journal == nil) {
             journal = Journal(context: context)
         }
@@ -46,8 +47,17 @@ class ParametersTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
+    func clearJournal() {
+        context.delete(journal!)
+    }
+    
+    func postJournal() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jPNotificationKey), object: nil, userInfo: ["thisJournal" : journal!])
+    }
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
         //Place any other segue preps in here by identifier.
@@ -92,6 +102,10 @@ class ParametersTableViewController: UITableViewController {
             }
             
             toViewController.objectForJournal = editForJournal
+        }
+        if segue.identifier == "generateRichText" {
+            let toViewController = segue.destination as! EditorViewController
+            toViewController.journal = journal
         }
     }
     
@@ -210,10 +224,6 @@ class ParametersTableViewController: UITableViewController {
             }
             tableview.reloadData()
         }
-    }
-
-    func clearJournal() {
-        context.delete(journal!)
     }
     
     // MARK: - Table view data source and delegate

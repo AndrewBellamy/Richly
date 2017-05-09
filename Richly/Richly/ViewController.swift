@@ -12,6 +12,8 @@ import CoreData
 
 var jRNotificationKey = "richly.journalRetrival.notificationKey"
 var jDNotificationKey = "richly.journalDeletion.notificationKey"
+var jGNotificationKey = "richly.journalGenerate.notificationKey"
+var jPNotificationKey = "richly.jounralPassPost.notificationKey"
 
 class ViewController: UIViewController {
 
@@ -41,6 +43,9 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "addEntry") {
             print("code for creating new journal")
+        }
+        if segue.identifier == "generateRichText" {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
         }
     }
 

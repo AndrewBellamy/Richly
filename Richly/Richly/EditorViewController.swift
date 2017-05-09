@@ -12,18 +12,33 @@ import CoreData
 class EditorViewController: UIViewController {
     
     var journal: Journal!
+    var textGenerator: RichTextGenerator!
+    var generatedText: String!
 
+    @IBOutlet weak var textEditorWindow: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: jPNotificationKey), object: nil, queue: nil, using: retrieveJournal)
     }
 
+    func retrieveJournal(notification:Notification) {
+        guard let newJournal = notification.userInfo!["thisJournal"] else {return}
+        journal = newJournal as! Journal
+        
+        textGenerator = RichTextGenerator(object: journal)
+        generatedText = textGenerator.generateText()
+        print(generatedText)
+        textEditorWindow.text = generatedText
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backFromEditor(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
 
     /*
     // MARK: - Navigation

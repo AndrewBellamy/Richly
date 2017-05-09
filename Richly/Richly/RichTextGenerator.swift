@@ -17,6 +17,7 @@ class RichTextGenerator {
         self.journal = object
     }
     
+    // Returns a randomly selected string from the array, passed in
     func randomReturner(array: [String]) -> String {
         let randomizer = Int(arc4random_uniform(UInt32(array.count)))
         return array[randomizer]
@@ -31,6 +32,10 @@ class RichTextGenerator {
         var places : [Place] = []
         var time : [Time] = []
         var activities : [Activity] = []
+        var weather : [Weather] = []
+        var impacts : [Impact] = []
+        var feelings : [Feeling] = []
+        var experiences : [Consume] = []
         
         var upperPronoun = "I"
         var lowerPronoun = "I"
@@ -50,10 +55,9 @@ class RichTextGenerator {
             journalContainsMaterial = true
             let timeRelationship = journal.time
             time = Array(timeRelationship!) as! [Time]
-            
+            var count = 0
             for period in time {
-                var count = 0
-                while (count == 0) {
+                if (count == 0) {
                     if (period.category == "Event") {
                         if (period.name?.lowercased().contains("birthday"))! {
                             intro += " was SOMEONE's " + period.name!
@@ -64,23 +68,21 @@ class RichTextGenerator {
                     if (period.category == "Interval") {
                         intro += " I spent the " + period.name!
                     }
-                    count += 1
                 }
                 if (count == 1 && period.category == "Event") {
                     intro += " of " + period.name!
                 }
-                if (period.category == "Interval") {
-                    intro += " then " + lowerPronoun + " spent the " + period.name!
+                if (count > 1 && period.category == "Interval") {
+                    intro += " then I spent the " + period.name!
                 }
-                if (period.category == "Event") {
+                if (count > 1 && period.category == "Event") {
                     intro += " for " + period.name!
                 }
-                
+                count += 1
             }
+        } else {
+            intro += " I spent the day"
         }
-        
-        
-        
         
         // MARK: - Handles the inclusion of people in entry
         
@@ -89,15 +91,16 @@ class RichTextGenerator {
             people = Array(personRelationship!) as! [Person]
 
             intro += " with "
+            var count = 0
             for person in people {
-                var count = 0
                 if (count == 0) {
                     intro += "my " + person.category!.lowercased() + " " + person.name!
-                    count += 1
+                    
                 }
                 if (count > 0){
                     intro += ", and my " + person.category!.lowercased() + " " + person.name!
                 }
+                count += 1
             }
             intro += "."
         } else {
@@ -111,13 +114,13 @@ class RichTextGenerator {
         // MARK: - Handles the inclusion of places
         
         if (journal.place != nil) {
+            journalContainsMaterial = true
             let placeRelationship = journal.place
             places = Array(placeRelationship!) as! [Place]
             
             midsection += upperPronoun
-            
+            var count = 0
             for place in places {
-                var count = 0
                 let length = places.count
                 if (count == 0) {
                     if (place.category == "Home") {
@@ -126,7 +129,7 @@ class RichTextGenerator {
                     if (place.category == "Outdoors") {
                         midsection += " went out to " + place.name!
                     }
-                    count += 1
+                    
                 }
                 if (count > 0 && count < length) {
                     if (place.category == "Home") {
@@ -135,7 +138,6 @@ class RichTextGenerator {
                     if (place.category == "Outdoors") {
                         midsection += ", then" + lowerPronoun + " went out to " + place.name!
                     }
-                    count += 1
                 }
                 if (count == length) {
                     if (place.category == "Home") {
@@ -145,6 +147,7 @@ class RichTextGenerator {
                         midsection += ", before ending up at " + place.name!
                     }
                 }
+                count += 1
             }
             
             midsection += "."
@@ -153,11 +156,44 @@ class RichTextGenerator {
         // MARK: - Handles the inclusion of activities
         
         if (journal.activity != nil) {
-            let placeRelationship = journal.place
-            places = Array(placeRelationship!) as! [Place]
+            journalContainsMaterial = true
+            let activityRelationship = journal.activity
+            activities = Array(activityRelationship!) as! [Activity]
+            var count = 0
+            for activity in activities {
+                let length = activities.count
+                if (count == 0) {
+                    if (activity.category == "Past Tense") {
+                        midsection += upperPronoun + " " + activity.name!
+                    }
+                    if (activity.category == "Present Tense") {
+                        midsection += upperPronoun + " " + randomReturner(array: ["went ","decided to go "]) + activity.name!
+                    }
+                }
+                if (count > 0 && count < length) {
+                    if (activity.category == "Past Tense") {
+                        midsection += randomReturner(array: [", before going ",", and then " + lowerPronoun + " "]) + activity.name!
+                    }
+                    if (activity.category == "Present Tense") {
+                        midsection +=  randomReturner(array: [" and " + lowerPronoun + " also went ",", then " + lowerPronoun + " went ",", before" + lowerPronoun + " decided to go "]) + activity.name!
+                    }
+                }
+                if (count == length) {
+                    if (activity.category == "Past Tense") {
+                        midsection += randomReturner(array: [", before " + lowerPronoun + " finally decided to ",", and lastly " + lowerPronoun + " "]) + activity.name!
+                    }
+                    if (activity.category == "Present Tense") {
+                        midsection +=  randomReturner(array: [" and " + lowerPronoun + " finally went ",", then " + lowerPronoun + " finished with a spot of ",", before" + lowerPronoun + " decided to go "]) + activity.name!
+                    }
+                }
+                count += 1
+            }
         } else {
             midsection += upperPronoun + " didn't really need to do much."
         }
+        
+        
+        
         
         if (journalContainsMaterial) {
             thisText = newText

@@ -230,7 +230,7 @@
                                             <barButtonItem title="Generate" style="plain" id="FFX-GM-cCK">
                                                 <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="addParameter:" destination="VDX-gw-RxW" id="n0u-J2-96W"/>
+                                                    <segue destination="ppg-dl-LbO" kind="presentation" identifier="generateRichText" modalTransitionStyle="flipHorizontal" id="pdM-eO-Ao5"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="778" y="139"/>
         </scene>
-        <!--View Controller-->
+        <!--Editor View-->
         <scene sceneID="gQC-bz-4cB">
             <objects>
-                <viewController id="ppg-dl-LbO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditorViewController" title="Editor View" id="ppg-dl-LbO" customClass="EditorViewController" customModule="Richly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zpW-zq-bcs"/>
                         <viewControllerLayoutGuide type="bottom" id="G9g-5H-pLr"/>
@@ -299,6 +299,9 @@
                                         <items>
                                             <barButtonItem title="Back" id="tXW-hF-rah">
                                                 <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="backFromEditor:" destination="ppg-dl-LbO" id="goj-RL-OzW"/>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="Vyu-h3-dLL"/>
                                             <barButtonItem title="Publish" id="YTF-gY-yjz">
@@ -321,6 +324,9 @@
                             <constraint firstItem="iRJ-QO-ksu" firstAttribute="leading" secondItem="r8A-S0-YS0" secondAttribute="leadingMargin" id="hnW-q3-moz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textEditorWindow" destination="eiV-B4-QJH" id="IRr-Tq-fca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzh-2a-1nu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
