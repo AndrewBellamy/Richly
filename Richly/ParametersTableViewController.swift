@@ -54,7 +54,7 @@ class ParametersTableViewController: UITableViewController {
     }
     
     func postJournal() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jPNotificationKey), object: nil, userInfo: ["thisJournal" : journal!])
+        performSegue(withIdentifier: "generateRichText", sender: nil)
     }
     
     // MARK: - Navigation

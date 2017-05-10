@@ -28,11 +28,11 @@ class RichTextGenerator {
         var thisText = "Nothing much to write about today :)"
         var newText = ""
         var tempStr = ""
-        var people : [Person] = []
-        var places : [Place] = []
-        var time : [Time] = []
-        var activities : [Activity] = []
-        var weather : [Weather] = []
+        var people : [Person] = Array(self.journal.person!) as! [Person]
+        var places : [Place] = Array(self.journal.place!) as! [Place]
+        var time : [Time] = Array(self.journal.time!) as! [Time]
+        var activities : [Activity] = Array(self.journal.activity!) as! [Activity]
+        var weather : [Weather] = Array(self.journal.weather!) as! [Weather]
         var impacts : [Impact] = []
         var feelings : [Feeling] = []
         var experiences : [Consume] = []
@@ -43,7 +43,7 @@ class RichTextGenerator {
         var journalContainsMaterial: Bool = false
         var intro: String = randomReturner(array: ["Today","This day"])
         
-        if (journal.person != nil) {
+        if (people.count != 0) {
             upperPronoun = "We"
             lowerPronoun = "we"
             single = false
@@ -51,10 +51,8 @@ class RichTextGenerator {
         }
         // MARK: - Handles the inclusion of time
         
-        if (journal.time != nil) {
+        if (time.count != 0) {
             journalContainsMaterial = true
-            let timeRelationship = journal.time
-            time = Array(timeRelationship!) as! [Time]
             var count = 0
             for period in time {
                 if (count == 0) {
@@ -81,15 +79,12 @@ class RichTextGenerator {
                 count += 1
             }
         } else {
-            intro += " I spent the day"
+            intro += ", I spent the day"
         }
         
         // MARK: - Handles the inclusion of people in entry
         
         if (single == false) {
-            let personRelationship = journal.person
-            people = Array(personRelationship!) as! [Person]
-
             intro += " with "
             var count = 0
             for person in people {
@@ -113,11 +108,8 @@ class RichTextGenerator {
         
         // MARK: - Handles the inclusion of places
         
-        if (journal.place != nil) {
+        if (places.count != 0) {
             journalContainsMaterial = true
-            let placeRelationship = journal.place
-            places = Array(placeRelationship!) as! [Place]
-            
             midsection += upperPronoun
             var count = 0
             for place in places {
@@ -155,10 +147,8 @@ class RichTextGenerator {
         
         // MARK: - Handles the inclusion of activities
         
-        if (journal.activity != nil) {
+        if (activities.count != 0) {
             journalContainsMaterial = true
-            let activityRelationship = journal.activity
-            activities = Array(activityRelationship!) as! [Activity]
             var count = 0
             for activity in activities {
                 let length = activities.count

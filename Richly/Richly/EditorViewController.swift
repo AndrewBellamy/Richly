@@ -18,13 +18,6 @@ class EditorViewController: UIViewController {
     @IBOutlet weak var textEditorWindow: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: jPNotificationKey), object: nil, queue: nil, using: retrieveJournal)
-    }
-
-    func retrieveJournal(notification:Notification) {
-        guard let newJournal = notification.userInfo!["thisJournal"] else {return}
-        journal = newJournal as! Journal
-        
         textGenerator = RichTextGenerator(object: journal)
         generatedText = textGenerator.generateText()
         print(generatedText)

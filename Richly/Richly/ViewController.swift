@@ -44,14 +44,15 @@ class ViewController: UIViewController {
         if (segue.identifier == "addEntry") {
             print("code for creating new journal")
         }
-        if segue.identifier == "generateRichText" {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
-        }
     }
 
     @IBAction func cancelAddEntry(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
+    }
+    
+    @IBAction func generateJournal(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
     }
     
     @IBAction func openSettings(_ sender: UIBarButtonItem) {

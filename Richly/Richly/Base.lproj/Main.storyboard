@@ -230,7 +230,7 @@
                                             <barButtonItem title="Generate" style="plain" id="FFX-GM-cCK">
                                                 <color key="tintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <segue destination="ppg-dl-LbO" kind="presentation" identifier="generateRichText" modalTransitionStyle="flipHorizontal" id="pdM-eO-Ao5"/>
+                                                    <action selector="generateJournal:" destination="VDX-gw-RxW" id="rsx-99-lLV"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
@@ -435,6 +435,7 @@
                     </tableView>
                     <connections>
                         <outlet property="tableview" destination="5Yo-ok-24W" id="FCY-VH-nHG"/>
+                        <segue destination="ppg-dl-LbO" kind="presentation" identifier="generateRichText" modalTransitionStyle="flipHorizontal" id="zCR-Vn-EaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GwG-tR-56l" userLabel="First Responder" sceneMemberID="firstResponder"/>
