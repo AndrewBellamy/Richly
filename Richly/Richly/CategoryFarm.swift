@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class categoryFarm {
-    let personCategory: [String] = ["Friend","Family"]
+    let personCategory: [String] = ["Friend","Mom","Dad","Brother","Sister","Cousin","Wife","Husband","Daughter","Son"]
     let placeCategory: [String] = ["Home","Outdoors"]
     let activityCategory: [String] = ["Past Tense","Present Tense"]
     let weatherCategory: [String] = ["Temperature","Sky"]

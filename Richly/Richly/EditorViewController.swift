@@ -20,7 +20,6 @@ class EditorViewController: UIViewController {
         super.viewDidLoad()
         textGenerator = RichTextGenerator(object: journal)
         generatedText = textGenerator.generateText()
-        print(generatedText)
         textEditorWindow.text = generatedText
     }
     

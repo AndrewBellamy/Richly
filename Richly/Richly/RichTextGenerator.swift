@@ -28,14 +28,14 @@ class RichTextGenerator {
         var thisText = "Nothing much to write about today :)"
         var newText = ""
         var tempStr = ""
-        var people : [Person] = Array(self.journal.person!) as! [Person]
-        var places : [Place] = Array(self.journal.place!) as! [Place]
-        var time : [Time] = Array(self.journal.time!) as! [Time]
-        var activities : [Activity] = Array(self.journal.activity!) as! [Activity]
-        var weather : [Weather] = Array(self.journal.weather!) as! [Weather]
-        var impacts : [Impact] = []
-        var feelings : [Feeling] = []
-        var experiences : [Consume] = []
+        let people : [Person] = Array(self.journal.person!) as! [Person]
+        let places : [Place] = Array(self.journal.place!) as! [Place]
+        let time : [Time] = Array(self.journal.time!) as! [Time]
+        let activities : [Activity] = Array(self.journal.activity!) as! [Activity]
+        let weather : [Weather] = Array(self.journal.weather!) as! [Weather]
+        let impacts : [Impact] = Array(self.journal.impact!) as! [Impact]
+        let feelings : [Feeling] = Array(self.journal.feeling!) as! [Feeling]
+        let experiences : [Consume] = Array(self.journal.consume!) as! [Consume]
         
         var upperPronoun = "I"
         var lowerPronoun = "I"
@@ -104,7 +104,7 @@ class RichTextGenerator {
         
         newText = intro
         
-        var midsection = ""
+        var midsection = " "
         
         // MARK: - Handles the inclusion of places
         
@@ -154,10 +154,10 @@ class RichTextGenerator {
                 let length = activities.count
                 if (count == 0) {
                     if (activity.category == "Past Tense") {
-                        midsection += upperPronoun + " " + activity.name!
+                        midsection += upperPronoun + " " + randomReturner(array: ["went ","decided to go "]) + activity.name!
                     }
                     if (activity.category == "Present Tense") {
-                        midsection += upperPronoun + " " + randomReturner(array: ["went ","decided to go "]) + activity.name!
+                        midsection += upperPronoun + " " + activity.name!
                     }
                 }
                 if (count > 0 && count < length) {
@@ -178,11 +178,126 @@ class RichTextGenerator {
                 }
                 count += 1
             }
+            midsection += "."
         } else {
             midsection += upperPronoun + " didn't really need to do much."
         }
         
+        // MARK: - Handles the inclusion of weather
         
+        if (weather.count != 0) {
+            journalContainsMaterial = true
+            var count = 0
+            for isLike in weather {
+                if (count == 0) {
+                    if (isLike.category == "Sky") {
+                        midsection += "The sky was " + isLike.name!
+                    }
+                    if (isLike.category == "Temperature") {
+                        midsection += "The temperature felt " + isLike.name!
+                    }
+                }
+                if (count > 0) {
+                    if (isLike.category == "Sky") {
+                        midsection += ", and the sky was " + isLike.name!
+                    }
+                    if (isLike.category == "Temperature") {
+                        midsection += ", and the temperature felt " + isLike.name!
+                    }
+                }
+                count += 1
+            }
+            midsection += "."
+        }
+        
+        newText += midsection
+        
+        var tailSection = " "
+        
+        // MARK: - Handles the inclusion of experiences
+        
+        if (experiences.count != 0) {
+            journalContainsMaterial = true
+            var count = 0
+            for experience in experiences {
+                if (count == 0) {
+                    if (experience.category == "Food") {
+                        tailSection += upperPronoun + randomReturner(array: [" ate "," ended up eating "]) + experience.name!
+                    }
+                    if (experience.category == "Information") {
+                        tailSection += upperPronoun + randomReturner(array: [" found out about "," learned about "]) + experience.name!
+                    }
+                    if (experience.category == "Visual") {
+                        tailSection += upperPronoun + randomReturner(array: [" saw "," watched "]) + experience.name!
+                    }
+                    if (experience.category == "Audial") {
+                        tailSection += upperPronoun + randomReturner(array: [" heard "," listenend to "]) + experience.name!
+                    }
+                }
+                if (count > 0) {
+                    if (experience.category == "Food") {
+                        tailSection += randomReturner(array: [", then " + lowerPronoun + " also ate some ",", before " + lowerPronoun + " had some "]) + experience.name!
+                    }
+                    if (experience.category == "Information") {
+                        tailSection += randomReturner(array: [", " + lowerPronoun +  " also found out about ",", then" + lowerPronoun + " learned about "]) + experience.name!
+                    }
+                    if (experience.category == "Visual") {
+                        tailSection += randomReturner(array: [", " + lowerPronoun + " also saw ",", then " + lowerPronoun + " watched "]) + experience.name!
+                    }
+                    if (experience.category == "Audial") {
+                        tailSection += randomReturner(array: [", then " + lowerPronoun + " heard ",", and " + lowerPronoun + " listenend to "]) + experience.name!
+                    }
+                }
+                count += 1
+            }
+            tailSection += "."
+        }
+        
+        // MARK: - Handles the inclusion of impacts
+        
+        if(impacts.count != 0) {
+            journalContainsMaterial = true
+            var count = 0
+            for impact in impacts {
+                if (count == 0) {
+                    if (impact.category == "Problem") {
+                        tailSection += randomReturner(array: [" There was a problem with "," " + upperPronoun + " had a problem with "]) + impact.name!
+                    }
+                    if (impact.category == "Solution") {
+                        tailSection += randomReturner(array: [" There was an easy fix with "," " + upperPronoun + " avoided a major issue when "]) + impact.name!
+                    }
+                }
+                if (count > 0) {
+                    if (impact.category == "Problem") {
+                        tailSection += randomReturner(array: [". Unfortunately there was an issue with ",". " + upperPronoun + " ended up having a problem with "]) + impact.name!
+                    }
+                    if (impact.category == "Solution") {
+                        tailSection += randomReturner(array: [". Luckily the solutio was ",". " + upperPronoun + " knew it was all sorted with "]) + impact.name!
+                    }
+                }
+                count += 1
+            }
+            tailSection += "."
+        }
+        
+        newText += tailSection
+        // MARK: - Handles the inclusion of feelings
+        
+        var feelSection = " "
+        
+        if(feelings.count != 0) {
+            journalContainsMaterial = true
+            for feeling in feelings {
+                if (feeling.category == "Emotion") {
+                    feelSection += "*" + upperPronoun + " felt " + feeling.name! + " about ..."
+                }
+                if (feeling.category == "Reaction") {
+                    feelSection += "My reation to ... was " + feeling.name! + "."
+                }
+            }
+        }
+        
+        newText += feelSection
         
         
         if (journalContainsMaterial) {
