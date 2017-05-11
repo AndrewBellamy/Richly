@@ -14,6 +14,7 @@ class EditorViewController: UIViewController {
     var journal: Journal!
     var textGenerator: RichTextGenerator!
     var generatedText: String!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var textEditorWindow: UITextView!
     override func viewDidLoad() {
@@ -32,6 +33,11 @@ class EditorViewController: UIViewController {
         self.presentingViewController?.dismiss(animated: true)
     }
 
+    @IBAction func publishJournal(_ sender: Any) {
+        journal.entry = textEditorWindow.text
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        performSegue(withIdentifier: "publishJournal", sender: nil)
+    }
     /*
     // MARK: - Navigation
 

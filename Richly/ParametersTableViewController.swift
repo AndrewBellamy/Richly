@@ -27,6 +27,7 @@ class ParametersTableViewController: UITableViewController {
     var selectedParamter:Int? = nil
     var dataReceived: parameterObject!
     var journal: Journal?
+    var jDate: NSDate?
     
     @IBOutlet var tableview: UITableView!
     
@@ -35,6 +36,7 @@ class ParametersTableViewController: UITableViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(clearJournal),name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(postJournal),name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: jPNotificationKey), object: nil, queue: nil, using: setDate)
         if (journal == nil) {
             journal = Journal(context: context)
         }
@@ -55,6 +57,12 @@ class ParametersTableViewController: UITableViewController {
     
     func postJournal() {
         performSegue(withIdentifier: "generateRichText", sender: nil)
+    }
+    
+    func setDate(notification:Notification) {
+        guard let newDate = notification.userInfo!["newDate"] else {return}
+        
+        journal?.date = (newDate as! NSDate)
     }
     
     // MARK: - Navigation

@@ -13,7 +13,7 @@ import CoreData
 var jRNotificationKey = "richly.journalRetrival.notificationKey"
 var jDNotificationKey = "richly.journalDeletion.notificationKey"
 var jGNotificationKey = "richly.journalGenerate.notificationKey"
-var jPNotificationKey = "richly.jounralPassPost.notificationKey"
+var jPNotificationKey = "richly.jounralPassDate.notificationKey"
 
 class ViewController: UIViewController {
 
@@ -41,9 +41,10 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "addEntry") {
-            print("code for creating new journal")
-        }
+    }
+    
+    @IBAction func addJournal(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jPNotificationKey), object: nil, userInfo: ["newDate" : thisJournalDate])
     }
 
     @IBAction func cancelAddEntry(_ sender: Any) {
@@ -57,11 +58,6 @@ class ViewController: UIViewController {
     
     @IBAction func openSettings(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settings", sender: nil)
-    }
-    
-    @IBAction func addParameter(_ sender: Any) {
-        
-        //deleteAllParamters()
     }
     
     func notifyJournalTableOfDate() {

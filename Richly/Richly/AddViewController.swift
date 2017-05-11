@@ -52,6 +52,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         default:
             cancelAdd((Any).self)
         }
+        categorySelected.text = currentCategory[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +74,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categorySelected.text = currentCategory[row]
-        nameEntered.isEnabled = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
