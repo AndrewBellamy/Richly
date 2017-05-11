@@ -27,7 +27,6 @@ class RichTextGenerator {
         
         var thisText = "Nothing much to write about today :)"
         var newText = ""
-        var tempStr = ""
         let people : [Person] = Array(self.journal.person!) as! [Person]
         let places : [Place] = Array(self.journal.place!) as! [Place]
         let time : [Time] = Array(self.journal.time!) as! [Time]
@@ -180,7 +179,7 @@ class RichTextGenerator {
             }
             midsection += "."
         } else {
-            midsection += upperPronoun + " didn't really need to do much."
+            midsection += upperPronoun + " spent the time " + lowerPronoun + " had, well."
         }
         
         // MARK: - Handles the inclusion of weather
@@ -191,10 +190,10 @@ class RichTextGenerator {
             for isLike in weather {
                 if (count == 0) {
                     if (isLike.category == "Sky") {
-                        midsection += "The sky was " + isLike.name!
+                        midsection += " The sky was " + isLike.name!
                     }
                     if (isLike.category == "Temperature") {
-                        midsection += "The temperature felt " + isLike.name!
+                        midsection += " The temperature felt " + isLike.name!
                     }
                 }
                 if (count > 0) {
