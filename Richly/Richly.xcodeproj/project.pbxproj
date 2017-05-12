@@ -55,7 +55,7 @@
 		4982B0FF1EBD5D430016E2ED /* CategoryFarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFarm.swift; sourceTree = "<group>"; };
 		4982B1011EBD9AD90016E2ED /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		4982B1031EBD9B700016E2ED /* RichTextGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextGenerator.swift; sourceTree = "<group>"; };
-		499DC0BA1EB34DC7004A9187 /* JournalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JournalTableViewController.swift; path = ../JournalTableViewController.swift; sourceTree = "<group>"; };
+		499DC0BA1EB34DC7004A9187 /* JournalTableViewController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; name = JournalTableViewController.swift; path = ../JournalTableViewController.swift; sourceTree = "<group>"; };
 		49A1D67D1EB5D6B600A5791B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		49F03B831EAA26AE008B121F /* Richly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Richly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F03B861EAA26AE008B121F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };

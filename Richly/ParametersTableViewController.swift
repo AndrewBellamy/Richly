@@ -26,7 +26,7 @@ class ParametersTableViewController: UITableViewController {
     
     var selectedParamter:Int? = nil
     var dataReceived: parameterObject!
-    var journal: Journal?
+    var journal: Journal!
     var jDate: NSDate?
     
     @IBOutlet var tableview: UITableView!
@@ -34,12 +34,14 @@ class ParametersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(clearJournal),name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(postJournal),name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: jPNotificationKey), object: nil, queue: nil, using: setDate)
         if (journal == nil) {
             journal = Journal(context: context)
+            //journal.date = thisJournalDate
+            print(String(describing: journal.date))
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(clearJournal),name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(postJournal),name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,18 +54,13 @@ class ParametersTableViewController: UITableViewController {
     }
     
     func clearJournal() {
-        context.delete(journal!)
+        context.delete(journal)
     }
     
     func postJournal() {
         performSegue(withIdentifier: "generateRichText", sender: nil)
     }
     
-    func setDate(notification:Notification) {
-        guard let newDate = notification.userInfo!["newDate"] else {return}
-        
-        journal?.date = (newDate as! NSDate)
-    }
     
     // MARK: - Navigation
     

@@ -15,6 +15,8 @@ var jDNotificationKey = "richly.journalDeletion.notificationKey"
 var jGNotificationKey = "richly.journalGenerate.notificationKey"
 var jPNotificationKey = "richly.jounralPassDate.notificationKey"
 
+var thisJournalDate = NSDate()
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -22,8 +24,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     
-    var thisJournalDate = NSDate()
-    var journal: Journal?
     var notificationCenter = NotificationCenter()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -37,14 +37,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func upDate(_ sender: UIDatePicker) {
-        notifyJournalTableOfDate()
+        thisJournalDate = datePicker.date as NSDate
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jRNotificationKey), object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
     @IBAction func addJournal(_ sender: Any) {
+        /*
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: jPNotificationKey), object: nil, userInfo: ["newDate" : thisJournalDate])
+        */
     }
 
     @IBAction func cancelAddEntry(_ sender: Any) {
@@ -58,11 +61,6 @@ class ViewController: UIViewController {
     
     @IBAction func openSettings(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settings", sender: nil)
-    }
-    
-    func notifyJournalTableOfDate() {
-        thisJournalDate = datePicker.date as NSDate
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jRNotificationKey), object: nil, userInfo: ["newDate" : thisJournalDate])
     }
 
     func deleteAllParamters() {

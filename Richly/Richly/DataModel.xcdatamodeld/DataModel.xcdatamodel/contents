@@ -21,8 +21,8 @@
         <relationship name="journal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Journal" inverseName="impact" inverseEntity="Journal" syncable="YES"/>
     </entity>
     <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="entry" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="516284880" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="entry" attributeType="String" syncable="YES"/>
         <relationship name="activity" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Activity" inverseName="journal" inverseEntity="Activity" syncable="YES"/>
         <relationship name="consume" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Consume" inverseName="journal" inverseEntity="Consume" syncable="YES"/>
         <relationship name="feeling" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Feeling" inverseName="journal" inverseEntity="Feeling" syncable="YES"/>
