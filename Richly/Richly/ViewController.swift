@@ -15,7 +15,7 @@ var jDNotificationKey = "richly.journalDeletion.notificationKey"
 var jGNotificationKey = "richly.journalGenerate.notificationKey"
 var jPNotificationKey = "richly.jounralPassDate.notificationKey"
 
-var thisJournalDate = NSDate()
+var thisJournalDate = Date()
 
 class ViewController: UIViewController {
 
@@ -30,6 +30,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let gregorian = Calendar(identifier: .gregorian)
+        let now = Date()
+        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        
+        // Change the time to 9:30:00 in your locale
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        thisJournalDate = gregorian.date(from: components)!
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,8 +47,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func upDate(_ sender: UIDatePicker) {
-        thisJournalDate = datePicker.date as NSDate
+        createDate()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: jRNotificationKey), object: nil)
+    }
+    
+    func createDate() {
+        let gregorian = Calendar(identifier: .gregorian)
+        let now = datePicker.date
+        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        
+        // Change the time to 9:30:00 in your locale
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        thisJournalDate = gregorian.date(from: components)!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

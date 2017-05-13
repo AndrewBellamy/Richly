@@ -30,12 +30,12 @@ class JournalTableViewController: UITableViewController {
         do {
             let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Journal")
             
-            let thisPredicate = NSPredicate(format: "date == %@", thisJournalDate)
+            let thisPredicate = NSPredicate(format: "date == %@", thisJournalDate as NSDate)
             
             fetchrequest.predicate = thisPredicate
             journals = try context.fetch(fetchrequest) as! [Journal]
             if (journals.count != 0) {
-                print(String(describing: journals[0].date))
+                print(String(describing: journals[0].entry))
             }
         } catch {
             print("No journals retrieved")
