@@ -30,16 +30,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gregorian = Calendar(identifier: .gregorian)
-        let now = Date()
-        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
         
-        // Change the time to 9:30:00 in your locale
-        components.hour = 0
-        components.minute = 0
-        components.second = 0
-        
-        thisJournalDate = gregorian.date(from: components)!
+        datePicker.setDate(thisJournalDate, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +48,6 @@ class ViewController: UIViewController {
         let now = datePicker.date
         var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
         
-        // Change the time to 9:30:00 in your locale
         components.hour = 0
         components.minute = 0
         components.second = 0
@@ -65,36 +56,14 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "addEntry") {
+            createDate()
+        }
     }
     
-    @IBAction func addJournal(_ sender: Any) {
-        /*
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jPNotificationKey), object: nil, userInfo: ["newDate" : thisJournalDate])
-        */
-    }
-
-    @IBAction func cancelAddEntry(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jDNotificationKey), object: nil)
-    }
-    
-    @IBAction func generateJournal(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: jGNotificationKey), object: nil)
-    }
     
     @IBAction func openSettings(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settings", sender: nil)
-    }
-
-    func deleteAllParamters() {
-        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Parameter")
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchrequest)
-        do {
-            try context.execute(batchDeleteRequest)
-        } catch {
-            print("couldn't delete everything")
-        }
-        
     }
 }
 

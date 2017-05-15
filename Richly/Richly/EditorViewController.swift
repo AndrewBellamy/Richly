@@ -29,6 +29,8 @@ class EditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func backFromEditor(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
@@ -37,15 +39,12 @@ class EditorViewController: UIViewController {
         journal.entry = textEditorWindow.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         performSegue(withIdentifier: "publishJournal", sender: nil)
+        editJournal = nil
     }
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier == "publishJournal") {
+        }
     }
-    */
-
 }

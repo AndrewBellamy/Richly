@@ -27,14 +27,54 @@ class RichTextGenerator {
         
         var thisText = "Nothing much to write about today :)"
         var newText = ""
-        let people : [Person] = Array(self.journal.person!) as! [Person]
-        let places : [Place] = Array(self.journal.place!) as! [Place]
-        let time : [Time] = Array(self.journal.time!) as! [Time]
-        let activities : [Activity] = Array(self.journal.activity!) as! [Activity]
-        let weather : [Weather] = Array(self.journal.weather!) as! [Weather]
-        let impacts : [Impact] = Array(self.journal.impact!) as! [Impact]
-        let feelings : [Feeling] = Array(self.journal.feeling!) as! [Feeling]
-        let experiences : [Consume] = Array(self.journal.consume!) as! [Consume]
+        let people : [Person]
+        if (self.journal.person != nil) {
+            people = Array(self.journal.person!) as! [Person]
+        } else {
+            people = []
+        }
+        let places : [Place]
+        if (self.journal.place != nil) {
+            places = Array(self.journal.place!) as! [Place]
+        } else {
+            places = []
+        }
+        let time : [Time]
+        if (self.journal.time != nil) {
+            time = Array(self.journal.time!) as! [Time]
+        } else {
+            time = []
+        }
+        let activities : [Activity]
+        if (self.journal.activity != nil) {
+             activities = Array(self.journal.activity!) as! [Activity]
+        } else {
+            activities = []
+        }
+        let weather : [Weather]
+        if (self.journal.weather != nil) {
+            weather = Array(self.journal.weather!) as! [Weather]
+        } else {
+            weather = []
+        }
+        let impacts : [Impact]
+        if (self.journal.impact != nil) {
+            impacts = Array(self.journal.impact!) as! [Impact]
+        } else {
+            impacts = []
+        }
+        let feelings : [Feeling]
+        if (self.journal.feeling != nil) {
+            feelings = Array(self.journal.feeling!) as! [Feeling]
+        } else {
+            feelings = []
+        }
+        let experiences : [Consume]
+        if (self.journal.consume != nil) {
+            experiences = Array(self.journal.consume!) as! [Consume]
+        } else {
+            experiences = []
+        }
         
         var upperPronoun = "I"
         var lowerPronoun = "I"

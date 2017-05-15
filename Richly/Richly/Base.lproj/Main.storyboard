@@ -70,7 +70,6 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="addJournal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="89U-1X-lnV"/>
                                             <segue destination="VDX-gw-RxW" kind="presentation" identifier="addEntry" modalTransitionStyle="flipHorizontal" id="nZ3-JD-Riy"/>
                                         </connections>
                                     </button>
@@ -113,10 +112,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uEq-IC-AgI">
-                                <rect key="frame" x="16" y="20" width="288" height="160"/>
+                                <rect key="frame" x="16" y="20" width="288" height="532"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="os7-LP-wQ4">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="knI-im-rTJ"/>
+                                        </constraints>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="Rxq-2v-M5b"/>
                                             <barButtonItem title="Settings" style="done" id="QxH-em-dns"/>
@@ -126,7 +128,7 @@
                                         <color key="barTintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </toolbar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klw-kG-n7z">
-                                        <rect key="frame" x="0.0" y="44" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="40" width="288" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3YX-WB-z5s"/>
                                         </constraints>
@@ -135,11 +137,11 @@
                                             <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="resetJournals:" destination="8KR-ra-Mfs" eventType="touchUpInside" id="2d4-hP-fju"/>
+                                            <action selector="resetJournals:" destination="8KR-ra-Mfs" eventType="touchUpInside" id="JF8-44-cVo"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-K7-7X2">
-                                        <rect key="frame" x="0.0" y="84" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="80" width="288" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="2NF-42-2KO"/>
                                         </constraints>
@@ -147,17 +149,29 @@
                                         <color key="textColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KB-TK-UoX">
-                                        <rect key="frame" x="0.0" y="124" width="288" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelSettings:" destination="8KR-ra-Mfs" eventType="touchUpInside" id="qCZ-Ah-GyC"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Richly for iOS, Developed by Andrew Bellamy. Student ID: 215240036" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-rx-xyg">
+                                        <rect key="frame" x="0.0" y="120" width="288" height="372"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJI-FE-D2r">
+                                        <rect key="frame" x="0.0" y="492" width="288" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="yHe-SN-6ar"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem systemItem="cancel" id="U2g-WM-sfh">
+                                                <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="cancelSettings:" destination="8KR-ra-Mfs" id="OlO-h2-EJe"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="8KB-TK-UoX" firstAttribute="top" secondItem="Dme-K7-7X2" secondAttribute="bottom" id="XjX-Ot-KnW"/>
+                                    <constraint firstAttribute="bottom" secondItem="IJI-FE-D2r" secondAttribute="bottom" id="VWm-5z-WYt"/>
                                     <constraint firstItem="Dme-K7-7X2" firstAttribute="top" secondItem="Klw-kG-n7z" secondAttribute="bottom" id="d1T-bk-xkG"/>
                                     <constraint firstItem="os7-LP-wQ4" firstAttribute="top" secondItem="uEq-IC-AgI" secondAttribute="top" id="iDr-YT-rWN"/>
                                     <constraint firstItem="Klw-kG-n7z" firstAttribute="top" secondItem="os7-LP-wQ4" secondAttribute="bottom" id="wG0-zd-qob"/>
@@ -169,6 +183,7 @@
                             <constraint firstItem="uEq-IC-AgI" firstAttribute="top" secondItem="GC0-p0-g9G" secondAttribute="bottom" id="We4-HT-UFM"/>
                             <constraint firstItem="uEq-IC-AgI" firstAttribute="trailing" secondItem="ZKK-wc-6Yb" secondAttribute="trailingMargin" id="XM7-lF-ic5"/>
                             <constraint firstItem="uEq-IC-AgI" firstAttribute="leading" secondItem="ZKK-wc-6Yb" secondAttribute="leadingMargin" id="aQz-5G-A8S"/>
+                            <constraint firstItem="C3J-GB-tsR" firstAttribute="top" secondItem="uEq-IC-AgI" secondAttribute="bottom" constant="16" id="l9n-pn-HRQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -182,7 +197,7 @@
         <!--Selection View-->
         <scene sceneID="8HW-va-P0L">
             <objects>
-                <viewController title="Selection View" modalTransitionStyle="flipHorizontal" id="VDX-gw-RxW" customClass="ViewController" customModule="Richly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Selection View" modalTransitionStyle="flipHorizontal" id="VDX-gw-RxW" customClass="SelectionViewController" customModule="Richly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XyB-WP-4Dr"/>
                         <viewControllerLayoutGuide type="bottom" id="lee-H6-PgU"/>
@@ -363,6 +378,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="VDX-gw-RxW" kind="presentation" identifier="editEntry" modalTransitionStyle="flipHorizontal" id="poZ-Cr-J59"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -717,4 +736,7 @@
             <point key="canvasLocation" x="776" y="-1218"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="poZ-Cr-J59"/>
+    </inferredMetricsTieBreakers>
 </document>

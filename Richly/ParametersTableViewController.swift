@@ -34,6 +34,12 @@ class ParametersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (editJournal != nil) {
+            journal = editJournal
+            journal.date = thisJournalDate as NSDate
+            print(String(describing: journal.date))
+            tableview.reloadData()
+        }
         if (journal == nil) {
             journal = Journal(context: context)
             journal.date = thisJournalDate as NSDate
@@ -170,60 +176,60 @@ class ParametersTableViewController: UITableViewController {
             switch dataReceived.section {
             case 0:
                 let oldPerson = personArray[editCellRow]
-                journal?.removeFromPerson(oldPerson)
+                journal.removeFromPerson(oldPerson)
                 let person = Person(context:context)
                 person.name = dataReceived.name
                 person.category = dataReceived.category
-                journal?.addToPerson(person)
+                journal.addToPerson(person)
             case 1:
                 let oldPlace = placeArray[editCellRow]
-                journal?.removeFromPlace(oldPlace)
+                journal.removeFromPlace(oldPlace)
                 let place = Place(context:context)
                 place.name = dataReceived.name
                 place.category = dataReceived.category
-                journal?.addToPlace(place)
+                journal.addToPlace(place)
             case 2:
                 let oldActivity = activityArray[editCellRow]
-                journal?.removeFromActivity(oldActivity)
+                journal.removeFromActivity(oldActivity)
                 let activity = Activity(context:context)
                 activity.name = dataReceived.name
                 activity.category = dataReceived.category
-                journal?.addToActivity(activity)
+                journal.addToActivity(activity)
             case 3:
                 let oldWeather = weatherArray[editCellRow]
-                journal?.removeFromWeather(oldWeather)
+                journal.removeFromWeather(oldWeather)
                 let weather = Weather(context:context)
                 weather.name = dataReceived.name
                 weather.category = dataReceived.category
-                journal?.addToWeather(weather)
+                journal.addToWeather(weather)
             case 4:
                 let oldTime = timeArray[editCellRow]
-                journal?.removeFromTime(oldTime)
+                journal.removeFromTime(oldTime)
                 let time = Time(context:context)
                 time.name = dataReceived.name
                 time.category = dataReceived.category
-                journal?.addToTime(time)
+                journal.addToTime(time)
             case 5:
                 let oldImpact = impactArray[editCellRow]
-                journal?.removeFromImpact(oldImpact)
+                journal.removeFromImpact(oldImpact)
                 let impact = Impact(context:context)
                 impact.name = dataReceived.name
                 impact.category = dataReceived.category
-                journal?.addToImpact(impact)
+                journal.addToImpact(impact)
             case 6:
                 let oldFeeling = feelingArray[editCellRow]
-                journal?.removeFromFeeling(oldFeeling)
+                journal.removeFromFeeling(oldFeeling)
                 let feeling = Feeling(context:context)
                 feeling.name = dataReceived.name
                 feeling.category = dataReceived.category
-                journal?.addToFeeling(feeling)
+                journal.addToFeeling(feeling)
             case 7:
                 let oldConsume = consumeArray[editCellRow]
-                journal?.removeFromConsume(oldConsume)
+                journal.removeFromConsume(oldConsume)
                 let consume = Consume(context:context)
                 consume.name = dataReceived.name
                 consume.category = dataReceived.category
-                journal?.addToConsume(consume)
+                journal.addToConsume(consume)
             default:
                 print("No parameters have been returned.")
             }
@@ -245,28 +251,28 @@ class ParametersTableViewController: UITableViewController {
         var relArray : [Any] = []
         switch section {
         case 0:
-            let person = journal?.person
+            let person = journal.person
             relArray = Array(person!)
         case 1:
-            let place = journal?.place
+            let place = journal.place
             relArray = Array(place!)
         case 2:
-            let activity = journal?.activity
+            let activity = journal.activity
             relArray = Array(activity!)
         case 3:
-            let weather = journal?.weather
+            let weather = journal.weather
             relArray = Array(weather!)
         case 4:
-            let time = journal?.time
+            let time = journal.time
             relArray = Array(time!)
         case 5:
-            let impact = journal?.impact
+            let impact = journal.impact
             relArray = Array(impact!)
         case 6:
-            let feeling = journal?.feeling
+            let feeling = journal.feeling
             relArray = Array(feeling!)
         case 7:
-            let consume = journal?.consume
+            let consume = journal.consume
             relArray = Array(consume!)
         default:
             print("Error: new section has been included")
@@ -281,56 +287,56 @@ class ParametersTableViewController: UITableViewController {
         while indexPath.row != rowsInSection {
             switch indexPath.section {
             case 0:
-                let person = journal?.person
+                let person = journal.person
                 personArray = Array(person!) as! [Person]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (personArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (personArray[indexPath.row] as AnyObject).name
                 return cell
             case 1:
-                let place = journal?.place
+                let place = journal.place
                 placeArray = Array(place!) as! [Place]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (placeArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (placeArray[indexPath.row] as AnyObject).name
                 return cell
             case 2:
-                let activity = journal?.activity
+                let activity = journal.activity
                 activityArray = Array(activity!) as! [Activity]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (activityArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (activityArray[indexPath.row] as AnyObject).name
                 return cell
             case 3:
-                let weather = journal?.weather
+                let weather = journal.weather
                 weatherArray = Array(weather!) as! [Weather]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (weatherArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (weatherArray[indexPath.row] as AnyObject).name
                 return cell
             case 4:
-                let time = journal?.time
+                let time = journal.time
                 timeArray = Array(time!) as! [Time]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (timeArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (timeArray[indexPath.row] as AnyObject).name
                 return cell
             case 5:
-                let impact = journal?.impact
+                let impact = journal.impact
                 impactArray = Array(impact!) as! [Impact]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (impactArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (impactArray[indexPath.row] as AnyObject).name
                 return cell
             case 6:
-                let feeling = journal?.feeling
+                let feeling = journal.feeling
                 feelingArray = Array(feeling!) as! [Feeling]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (feelingArray[indexPath.row] as AnyObject).category
                 cell.detailTextLabel?.text = (feelingArray[indexPath.row] as AnyObject).name
                 return cell
             case 7:
-                let consume = journal?.consume
+                let consume = journal.consume
                 consumeArray = Array(consume!) as! [Consume]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ParameterCell", for: indexPath)
                 cell.textLabel?.text = (consumeArray[indexPath.row] as AnyObject).category
@@ -407,28 +413,28 @@ class ParametersTableViewController: UITableViewController {
             switch indexPath.section {
             case 0:
                 let oldPerson = personArray[indexPath.row]
-                journal?.removeFromPerson(oldPerson)
+                journal.removeFromPerson(oldPerson)
             case 1:
                 let oldPlace = placeArray[indexPath.row]
-                journal?.removeFromPlace(oldPlace)
+                journal.removeFromPlace(oldPlace)
             case 2:
                 let oldActivity = activityArray[indexPath.row]
-                journal?.removeFromActivity(oldActivity)
+                journal.removeFromActivity(oldActivity)
             case 3:
                 let oldWeather = weatherArray[indexPath.row]
-                journal?.removeFromWeather(oldWeather)
+                journal.removeFromWeather(oldWeather)
             case 4:
                 let oldTime = timeArray[indexPath.row]
-                journal?.removeFromTime(oldTime)
+                journal.removeFromTime(oldTime)
             case 5:
                 let oldImpact = impactArray[indexPath.row]
-                journal?.removeFromImpact(oldImpact)
+                journal.removeFromImpact(oldImpact)
             case 6:
                 let oldFeeling = feelingArray[indexPath.row]
-                journal?.removeFromFeeling(oldFeeling)
+                journal.removeFromFeeling(oldFeeling)
             case 7:
                 let oldConsume = consumeArray[indexPath.row]
-                journal?.removeFromConsume(oldConsume)
+                journal.removeFromConsume(oldConsume)
             default:
                 print("Nothing to remove")
             }
