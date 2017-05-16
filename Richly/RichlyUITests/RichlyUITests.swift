@@ -41,6 +41,44 @@ class RichlyUITests: XCTestCase {
         
     }
     
+    func testJournalMainViewTable() {
+        let app = XCUIApplication()
+        //Main table exists
+        XCTAssert(app.tables.count != 0)
+    }
+    
+    func testAddButton() {
+        let app = XCUIApplication()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+        //Check that a table exists
+        XCTAssert(app.tables.count != 0)
+        //Check that we've navigated
+        XCTAssert(app.toolbars.buttons["Selection"].exists)
+        
+    }
+    
+    func testAddandCancel() {
+        
+        let app = XCUIApplication()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+        
+        let toolbarsQuery = app.toolbars
+        toolbarsQuery.buttons["Cancel"].tap()
+        XCTAssert(toolbarsQuery.buttons["Richly"].exists)
+        
+    }
+    
+    func testAddingParamter() {
+        let app = XCUIApplication()
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+        app.tables.children(matching: .cell).element(boundBy: 0).children(matching: .button).element.tap()
+        window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .textField).element.tap()
+        window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .textField).element.typeText("Dan")
+        app.typeText("\r")
+        app.toolbars.buttons["Done"].tap()
+    }
+    
     /*
      app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
      
