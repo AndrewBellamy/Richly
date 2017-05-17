@@ -59,7 +59,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdQ-Tc-kfO">
                                         <rect key="frame" x="0.0" y="276" width="288" height="228"/>
                                         <connections>
-                                            <segue destination="j8T-0q-Dkq" kind="embed" id="UaX-6J-fK3"/>
+                                            <segue destination="j8T-0q-Dkq" kind="embed" identifier="embedJournals" id="UaX-6J-fK3"/>
                                         </connections>
                                     </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKa-jc-mar">
@@ -207,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U3X-gO-vp5">
-                                <rect key="frame" x="16" y="20" width="288" height="532"/>
+                                <rect key="frame" x="16" y="0.0" width="288" height="552"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2L-TR-ndf">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="40"/>
@@ -225,13 +225,13 @@
                                         <color key="barTintColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </toolbar>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hti-Qa-Zzh">
-                                        <rect key="frame" x="0.0" y="40" width="288" height="452"/>
+                                        <rect key="frame" x="0.0" y="40" width="288" height="472"/>
                                         <connections>
-                                            <segue destination="iC0-Je-6Te" kind="embed" id="Wrl-pq-pic"/>
+                                            <segue destination="iC0-Je-6Te" kind="embed" identifier="embedParameters" id="Wrl-pq-pic"/>
                                         </connections>
                                     </containerView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDC-HT-SaZ">
-                                        <rect key="frame" x="0.0" y="492" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="512" width="288" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6ck-Ki-fYo"/>
                                         </constraints>
@@ -402,7 +402,7 @@
             <objects>
                 <viewController id="iC0-Je-6Te" customClass="ParametersTableViewController" customModule="Richly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="5Yo-ok-24W">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="452"/>
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="472"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
