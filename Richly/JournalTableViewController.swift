@@ -87,6 +87,19 @@ class JournalTableViewController: UITableViewController {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        let alertController = UIAlertController(title: "Journal Entry", message: cell?.textLabel?.text,
+                                                preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Done", style: .default) {
+            (action) -> Void in print() }
+        
+        alertController.addAction(yesAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let condemedJournal = journals[indexPath.row]

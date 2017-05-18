@@ -68,23 +68,64 @@ class RichlyUITests: XCTestCase {
         
     }
     
-    func testAddingParamter() {
+    func testAddingParameter() {
+        let app = XCUIApplication()
+        
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+        
+        app.tables.children(matching: .cell).element(boundBy: 0).children(matching: .button).element.tap()
+        
+        let textField = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .textField).element
+        textField.tap()
+        
+        textField.typeText("d")
+        app.typeText("\r")
+        app.toolbars.buttons["Done"].tap()
+        
+        let tablesQuery = app.tables
+        XCTAssert(tablesQuery.cells.staticTexts["d"].exists)
+    }
+    
+    func testEditingParameter() {
+        
+        let app = XCUIApplication()
+        
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+        
+        app.tables.children(matching: .cell).element(boundBy: 0).children(matching: .button).element.tap()
+            
+        let textField = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .textField).element
+        textField.tap()
+        
+        textField.typeText("d")
+        app.typeText("\r")
+        app.toolbars.buttons["Done"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.cells.staticTexts["d"].tap()
+        
+        textField.tap()
+        textField.typeText("i")
+        app.typeText("\r")
+        app.toolbars.buttons["Done"].tap()
+        
+        XCTAssert(tablesQuery.cells.staticTexts["di"].exists)
+    }
+    
+    func testGeneratingTextInEditor() {
+        
         let app = XCUIApplication()
         let window = app.children(matching: .window).element(boundBy: 0)
         window.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
-        app.tables.children(matching: .cell).element(boundBy: 0).children(matching: .button).element.tap()
-        window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .textField).element.tap()
-        window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .textField).element.typeText("Dan")
-        app.typeText("\r")
-        app.toolbars.buttons["Done"].tap()
+        
+        let toolbarsQuery = app.toolbars
+        toolbarsQuery.buttons["Generate"].tap()
+        
+        toolbarsQuery.buttons["Publish"].tap()
+        XCTAssert(toolbarsQuery.buttons["Richly"].exists)
+        
     }
     
-    /*
-     app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
-     
-     let toolbarsQuery = app.toolbars
-     toolbarsQuery.buttons["Cancel"].tap()
-     toolbarsQuery.buttons["Share"].tap()
-     app.buttons["Cancel"].tap()
-    */
 }
