@@ -10,7 +10,7 @@
 import UIKit
 import CoreData
 
-class EditorViewController: UIViewController {
+class EditorViewController: UIViewController, UITextViewDelegate {
     
     /**
      Initialization variables
@@ -27,6 +27,7 @@ class EditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textEditorWindow.delegate = self
         textGenerator = RichTextGenerator(object: journal)
         generatedText = textGenerator.generateText()
         textEditorWindow.text = generatedText
@@ -37,6 +38,16 @@ class EditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n"
+        {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+        
     /**
      Dismisses the presenting view controller
     */
