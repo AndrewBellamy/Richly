@@ -2,7 +2,8 @@
 //  AddViewController.swift
 //  Richly
 //
-//  Created by Andrew Bellamy on 2/5/17.
+//  Created by Andrew Bellamy : 215240036 on 2/5/17.
+//  SIT206 Assignment 2
 //  Copyright © 2017 Andrew Bellamy. All rights reserved.
 //
 
@@ -11,17 +12,24 @@ import CoreData
 
 class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    /**
+     Initialization variables
+    */
     var parameterToAdd = Int()
     var objectForJournal = parameterObject()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let CategoryFarm = categoryFarm()
     var currentCategory: [String] = []
 
+    /**
+     In UI controls, set as variables for programmatic use.
+    */
     @IBOutlet weak var topLabel: UIBarButtonItem!
     @IBOutlet weak var categorySelected: UILabel!
     @IBOutlet weak var nameEntered: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         switch parameterToAdd {
@@ -84,15 +92,25 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         return true
     }
     
+    /**
+     Sets the done button to enabled when text exists in the name input field
+     - parameters:
+        - sender: The UITextField for name input
+    */
     @IBAction func enteredName(_ sender: UITextField) {
         if(sender.text != "" || sender.text != nil) {
             doneButton.isEnabled = true
         }
     }
     
+    /**
+     Dismisses the presenting view controller
+    */
     @IBAction func cancelAdd(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveUnwindSegue" {

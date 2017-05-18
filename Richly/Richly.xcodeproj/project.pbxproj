@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4940ACB61EAF41420047A71A /* output.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4940ACB51EAF41420047A71A /* output.txt */; };
 		4940ACB91EAF43620047A71A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */; };
 		4940ACBD1EAF52420047A71A /* ParametersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */; };
 		497535171EB8762000893172 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497535161EB8762000893172 /* AddViewController.swift */; };
@@ -16,7 +15,6 @@
 		4982B1001EBD5D430016E2ED /* CategoryFarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982B0FF1EBD5D430016E2ED /* CategoryFarm.swift */; };
 		4982B1021EBD9AD90016E2ED /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982B1011EBD9AD90016E2ED /* EditorViewController.swift */; };
 		4982B1041EBD9B700016E2ED /* RichTextGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982B1031EBD9B700016E2ED /* RichTextGenerator.swift */; };
-		498CE8C91EC66BC1006105E4 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8C81EC66BC1006105E4 /* Journal.swift */; };
 		499DC0BB1EB34DC7004A9187 /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499DC0BA1EB34DC7004A9187 /* JournalTableViewController.swift */; };
 		49A1D67E1EB5D6B600A5791B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A1D67D1EB5D6B600A5791B /* SettingsViewController.swift */; };
 		49C31EC31EC9AEC700D97598 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C31EC21EC9AEC700D97598 /* SelectionViewController.swift */; };
@@ -48,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		4940ACB31EAF3D740047A71A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4940ACB51EAF41420047A71A /* output.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = output.txt; sourceTree = "<group>"; };
 		4940ACB81EAF43620047A71A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		4940ACBC1EAF52420047A71A /* ParametersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParametersTableViewController.swift; path = ../ParametersTableViewController.swift; sourceTree = "<group>"; };
 		497535161EB8762000893172 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +54,6 @@
 		4982B0FF1EBD5D430016E2ED /* CategoryFarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFarm.swift; sourceTree = "<group>"; };
 		4982B1011EBD9AD90016E2ED /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		4982B1031EBD9B700016E2ED /* RichTextGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichTextGenerator.swift; sourceTree = "<group>"; };
-		498CE8C81EC66BC1006105E4 /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		499DC0BA1EB34DC7004A9187 /* JournalTableViewController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; name = JournalTableViewController.swift; path = ../JournalTableViewController.swift; sourceTree = "<group>"; };
 		49A1D67D1EB5D6B600A5791B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		49C31EC21EC9AEC700D97598 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +135,7 @@
 				4940ACB31EAF3D740047A71A /* Info.plist */,
 				49F03B8D1EAA26AE008B121F /* Assets.xcassets */,
 				49F3CF241EACD20D00CC878B /* Podfile */,
-				4940ACB51EAF41420047A71A /* output.txt */,
 				4940ACB71EAF43620047A71A /* DataModel.xcdatamodeld */,
-				498CE8C81EC66BC1006105E4 /* Journal.swift */,
 			);
 			path = Richly;
 			sourceTree = "<group>";
@@ -276,7 +270,6 @@
 			files = (
 				49F3CF251EACD20D00CC878B /* Podfile in Resources */,
 				49F03B8E1EAA26AE008B121F /* Assets.xcassets in Resources */,
-				4940ACB61EAF41420047A71A /* output.txt in Resources */,
 				49F03B8C1EAA26AE008B121F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +304,6 @@
 				4981833E1EBB1D74003006A4 /* ParameterClass.swift in Sources */,
 				49F03B871EAA26AE008B121F /* AppDelegate.swift in Sources */,
 				4982B1041EBD9B700016E2ED /* RichTextGenerator.swift in Sources */,
-				498CE8C91EC66BC1006105E4 /* Journal.swift in Sources */,
 				49A1D67E1EB5D6B600A5791B /* SettingsViewController.swift in Sources */,
 				4982B0FE1EBD5CAB0016E2ED /* EditViewController.swift in Sources */,
 				4982B1001EBD5D430016E2ED /* CategoryFarm.swift in Sources */,

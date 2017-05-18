@@ -2,7 +2,8 @@
 //  ParametersTableViewController.swift
 //  Richly
 //
-//  Created by Andrew Bellamy on 25/4/17.
+//  Created by Andrew Bellamy : 215240036 on 25/4/17.
+//  SIT206 Assignment 2
 //  Copyright © 2017 Andrew Bellamy. All rights reserved.
 //
 
@@ -11,8 +12,10 @@ import CoreData
 
 class ParametersTableViewController: UITableViewController {
 
+    /**
+     Initialization variables
+    */
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     let selectionArray: [String] = ["People","Places","Activities","Weather","Chronology","Impact","Feelings","Experience"]
     var editCellRow: Int!
     var personArray: [Person] = []
@@ -23,12 +26,14 @@ class ParametersTableViewController: UITableViewController {
     var impactArray: [Impact] = []
     var feelingArray: [Feeling] = []
     var consumeArray: [Consume] = []
-    
     var selectedParamter:Int? = nil
     var dataReceived: parameterObject!
     var journal: Journal!
     var jDate: NSDate?
     
+    /**
+     In UI controls, set as variables for programmatic use.
+    */
     @IBOutlet var tableview: UITableView!
     
     
@@ -59,10 +64,16 @@ class ParametersTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    /**
+     Deletes journal NSManagedObjects from the context
+    */
     func clearJournal() {
         context.delete(journal)
     }
     
+    /**
+     Calls the segue to the editor view controller
+    */
     func postJournal() {
         performSegue(withIdentifier: "generateRichText", sender: nil)
     }
@@ -70,6 +81,9 @@ class ParametersTableViewController: UITableViewController {
     
     // MARK: - Navigation
     
+    /**
+     Handles passing data between view controllers
+    */
     override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
         //Place any other segue preps in here by identifier.
         if segue.identifier == "addParameter" {
@@ -120,6 +134,9 @@ class ParametersTableViewController: UITableViewController {
         }
     }
     
+    /**
+     Handles receiving data from view controllers
+    */
     @IBAction func unWind(segue: UIStoryboardSegue) {
         if(segue.identifier == "saveUnwindSegue") {
             let sourceViewController = segue.source as! AddViewController
@@ -246,7 +263,10 @@ class ParametersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int ) -> String {
         return selectionArray[section]
     }
-
+    
+    /**
+     Determines the section size, based on relations for each section
+    */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var relArray : [Any] = []
         switch section {
@@ -351,6 +371,9 @@ class ParametersTableViewController: UITableViewController {
         return cell
     }
     
+    /**
+     Sets the parameterCells for editing, keeps addCells from being edited.
+    */
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         var edit = Bool()
         switch indexPath.section {
@@ -442,13 +465,4 @@ class ParametersTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Core Data Retrieve and Delete
-    func getParameters() -> NSFetchRequest<NSFetchRequestResult> {
-        let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Parameter")
-        
-        let categorySort = NSSortDescriptor(key: "name", ascending: true)
-        
-        fetchrequest.sortDescriptors = [categorySort]
-        return fetchrequest
-    }
 }

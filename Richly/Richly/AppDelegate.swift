@@ -2,7 +2,8 @@
 //  AppDelegate.swift
 //  Richly
 //
-//  Created by Andrew Bellamy on 21/4/17.
+//  Created by Andrew Bellamy : 215240036 on 21/4/17.
+//  SIT206 Assignment 2
 //  Copyright © 2017 Andrew Bellamy. All rights reserved.
 //
 

@@ -733,7 +733,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APd-av-4I9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oHh-Lt-7ae" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="776" y="-1218"/>
+            <point key="canvasLocation" x="2513" y="-551"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

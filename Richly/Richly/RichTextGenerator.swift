@@ -2,7 +2,8 @@
 //  RichTextGenerator.swift
 //  Richly
 //
-//  Created by Andrew Bellamy on 6/5/17.
+//  Created by Andrew Bellamy : 215240036 on 6/5/17.
+//  SIT206 Assignment 2
 //  Copyright © 2017 Andrew Bellamy. All rights reserved.
 //
 
@@ -10,21 +11,43 @@ import Foundation
 import UIKit
 import CoreData
 
+/**
+ Custom class for generating the journal text.
+*/
 class RichTextGenerator {
     var journal : Journal
     
+    /**
+     Initializes the class.
+     - parameters:
+        - object: The Journal NSManagedObject
+     */
     init(object: Journal) {
         self.journal = object
     }
     
-    // Returns a randomly selected string from the array, passed in
+    /**
+     Accepts an array of strings as the only parameter. Uses arc4random_uniform to randomly select the index.
+     - parameters:
+        - array: An array of strings
+     - returns:
+     A randomly selected string
+    */
     func randomReturner(array: [String]) -> String {
         let randomizer = Int(arc4random_uniform(UInt32(array.count)))
         return array[randomizer]
     }
     
+    /**
+     Disects the journal NSManagedObject and uses the paramters/relations to construct the text for the entry.
+     - returns:
+        The text entry as a string
+    */
     func generateText() -> String {
         
+        /**
+         Initialization variables
+        */
         var thisText = "Nothing much to write about today :)"
         var newText = ""
         let people : [Person]
@@ -88,6 +111,7 @@ class RichTextGenerator {
             single = false
             journalContainsMaterial = true
         }
+        
         // MARK: - Handles the inclusion of time
         
         if (time.count != 0) {

@@ -2,20 +2,28 @@
 //  JournalTableViewController.swift
 //  Richly
 //
-//  Created by Andrew Bellamy on 28/4/17.
+//  Created by Andrew Bellamy : 215240036 on 28/4/17.
+//  SIT206 Assignment 2
 //  Copyright © 2017 Andrew Bellamy. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
+/** Global variable to pass jounral class to parameter view */
 var editJournal: Journal?
 
 class JournalTableViewController: UITableViewController {
     
+    /**
+     Initialization variables
+     */
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var journals: [Journal] = []
 
+    /**
+     In UI controls, set as variables for programmatic use
+    */
     @IBOutlet var tableview: UITableView!
     
     override func viewDidLoad() {
@@ -44,6 +52,10 @@ class JournalTableViewController: UITableViewController {
     
     // MARK: - Core Data
     
+    /**
+     Retrieves journals from the managed object context.
+     Filters the journals by thisJournalDate, via predicate
+    */
     func retrieveJournals() {
         do {
             let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Journal")
@@ -59,7 +71,6 @@ class JournalTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

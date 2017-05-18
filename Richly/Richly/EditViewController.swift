@@ -2,7 +2,8 @@
 //  EditViewController.swift
 //  Richly
 //
-//  Created by Andrew Bellamy on 6/5/17.
+//  Created by Andrew Bellamy : 215240036 on 6/5/17.
+//  SIT206 Assignment 2
 //  Copyright © 2017 Andrew Bellamy. All rights reserved.
 //
 
@@ -11,16 +12,23 @@ import CoreData
 
 class EditViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    /**
+     Initialization variables
+    */
     var objectForJournal: parameterObject!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let CategoryFarm = categoryFarm()
     var currentCategory: [String] = []
     
+    /**
+     In UI controls, set as variables for programmatic use.
+    */
     @IBOutlet weak var topLabel: UIBarButtonItem!
     @IBOutlet weak var categorySelected: UILabel!
     @IBOutlet weak var nameEntered: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         switch objectForJournal.section {
@@ -85,9 +93,14 @@ class EditViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return true
     }
     
+    /**
+     Dismisses the presenting view controller
+     */
     @IBAction func cancelEdit(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "changeUnwindSegue" {
